@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.pro.entity.CollectTitle" table="t_collecttype">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="native" />
+		</id>
+		<property access="field" column="t_stuid" length="200" name="stuid" />
+		<property access="field" column="t_stuname" length="200"
+			name="stuname" />
+		<property access="field" column="t_titleid" length="200"
+			name="titleid" />
+		<property access="field" column="t_types" length="200" name="types" />
+		<property access="field" column="t_titlename" length="200"
+			name="titlename" />
+		
+	</class>
+</hibernate-mapping>

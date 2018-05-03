@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.pro.entity.Fans" table="t_fans">
+<id name="id" type="java.lang.Integer">
+<column name="id"/>
+<generator class="native"/>
+</id>
+<property access="field" column="t_userId" length="200" name="userId"/>
+<property access="field" column="t_followId" length="200" name="followId"/>
+<property access="field" column="t_userName" length="200" name="userName"/>
+<property access="field" column="t_userImg" length="200" name="userImg"/>
+<property access="field" column="t_followName" length="200" name="followName"/>
+<property access="field" column="t_followImg" length="200" name="followImg"/>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站导航  - 做全网最好的DJ音乐站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="ivusic,音乐网,最新DJ,DJ资源,最全音乐,Layui DJ网,专业DJ,电音,专辑,极简DJ,流畅体验,DJ论坛">
+    <meta name="description" content="iVusic 音乐网基于 Layui 前端框架开发，颠覆传统凌乱复杂网站，旨在极简的DJ音乐网体验，全站收录最新最全的DJ资源与音乐资讯，为喜好DJ的用户提供最好的音乐盛宴。">
+    <link rel="stylesheet" type="text/css" href="/static/index/jPlayer/jplayer.flat.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/index/jPlayer/css/animate.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/index/jPlayer/css/simple-line-icons.css"/>
+
+    <!--STYLESHEET-->
+    <link href="/static/index/default/css/bootstrap.min.css" rel="stylesheet">
+    <link href='/static/index/default/css/font-face.css' rel='stylesheet' type='text/css'>
+    <link href="/static/index/default/css/nifty.min.css" rel="stylesheet">
+    <link href="/static/index/default/plugins/nprogress/nprogress.css" rel="stylesheet">
+    <link href="/static/index/default/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/hack/layui/css/layui.css" rel="stylesheet">
+    <link href="/static/index/css/global.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="fly-header bg-dark">
+    <div class="layui-container">
+        <a class="fly-logo" href="/index.html" data-pjax title="iVusic音乐网">
+            <img src="/static/index/images/ivusic/logo.png" alt="ivusic">
+        </a>
+        <ul class="layui-nav fly-nav layui-hide-xs">
+            <li class="layui-nav-item ">
+                <a href="/index.html" data-pjax><i class="layui-icon">&#xe68e;</i>首页</a>
+            </li>
+            <li class="layui-nav-item ">
+                <a href="/index/music.html" data-pjax><i class="layui-icon">&#xe62c;</i>舞曲</a>
+            </li>
+            <li class="layui-nav-item ">
+                <a href="/index/topic.html" data-pjax><i class="layui-icon">&#xe6fc;</i>专辑</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="/index/link.html" data-pjax><i class="layui-icon">&#xe857;</i>导航</a>
+            </li>
+        </ul>
+
+        <ul class="layui-nav layui-hide-md" style="float: right;margin-top:18px;">
+            <li class="layui-nav-item no-nav-more" style="line-height: 30px;">
+                <a href="javascript:;"><i class="layui-icon" style="font-size: 26px;">&#xe65f;</i></a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="/index.html" data-pjax>首页</a></dd>
+                    <dd><a href="/index/music.html" data-pjax>电音</a></dd>
+                    <dd><a href="/index/topic.html" data-pjax>专辑</a></dd>
+                    <dd><a href="/index/link.html" data-pjax>导航</a></dd>
+                    <dd><a href="/index/news.html" data-pjax>资讯</a></dd>
+                    <dd><a href="/index/article.html" data-pjax>论坛</a></dd>
+                    <dd><a href="/index/picture.html" data-pjax>美图</a></dd>
+                    <dd><a href="/index/user/login.html" data-pjax>登录</a></dd>
+                    <dd><a href="/index/user/register.html" data-pjax>注册</a></dd>
+                </dl>
+            </li>
+        </ul>
+
+        <ul class="layui-nav fly-nav-user">
+                        <!-- 未登入的状态 -->
+            <li class="layui-nav-item">
+                <a class="iconfont icon-touxiang layui-hide-xs" href="/index/user/login.html" data-pjax></a>
+            </li>
+            <li class="layui-nav-item"><a href="/index/user/login.html" data-pjax>登录</a></li>
+            <li class="layui-nav-item"><a href="/index/user/register.html" data-pjax>注册</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="page-loading">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+
+<div id="container">
+    <div class="alone-banner layui-bg-black layui-hide-xs">
+        <div class="layui-container">
+            <h1>2018 让世界一起欢呼</h1>
+            <p>本站欢迎相关各大网站友链，正所谓单丝不成线，独木不成林。</p>
+        </div>
+    </div>
+
+    <div class="layui-container">
+        <div class="layui-tab layui-tab-brief" lay-filter="user">
+            <ul class="layui-tab-title">
+                <li class="layui-this" lay-id="link">友情链接</li>
+                <li lay-id="add">友链申请</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <fieldset class="layui-elem-field layui-field-title alone-title">
+                        <legend>友情链接</legend>
+                    </fieldset>
+                    <!--link start-->
+                                        <div class="layui-card">
+                        <div class="layui-card-header">友情链接</div>
+                        <div class="layui-card-body">
+                            <div class="layui-row layui-col-space20">
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.y-one.cn" target="_blank" class="linkView" data-id="6">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/63c461a1181fde54337eddc7d54aa1fb.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">ONE源码</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="专业的源码分享交流平台">专业的源码分享交流平台</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">50</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.flyfun.site" target="_blank" class="linkView" data-id="7">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/d8521dcb68099ce62079fd67ee7ed1ed.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">飞趣社区</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="飞趣社区 是真实的社交网络">飞趣社区 是真实的社交网络</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">53</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="https://www.extrastu.xin" target="_blank" class="linkView" data-id="8">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/61c728527337f00aacf650e0667d0dac.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">益达博客</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="张益达同学的个人博客">张益达同学的个人博客</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">32</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.guojiawei.com" target="_blank" class="linkView" data-id="9">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/38d0fe48ff16ec8a89385d6cde17bb29.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">See You</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="web前端相关技术总结，Node学习，资源分享">web前端相关技术总结，Node学习，资源分享</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">18</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="https://ajlai.com/" target="_blank" class="linkView" data-id="10">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/909e29d1d3b07a8637a68b41086836f8.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">爱就来</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="做有趣的有意义的事情">做有趣的有意义的事情</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">12</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://fm126.xyz" target="_blank" class="linkView" data-id="30">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/index/link.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">程序员的网站</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="程序员、开发者、设计师常用的网站。聚合精品网址，打造最好用的导航体验。做最好用的网站推荐，开发文档, 在线学习，框架工具。实时提醒的待办事项，简单好用的网络书签，每一个功能都是为你准备。">程序员、开发者、设计师常用的网站。聚合精品网址，打造最好用的导航体验。做最好用的网站推荐，开发文档, 在线学习，框架工具。实时提醒的待办事项，简单好用的网络书签，每一个功能都是为你准备。</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">25</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://wxhhan.cn" target="_blank" class="linkView" data-id="31">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180315/6536a237b7c264d510383b8f5d1ae238.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">优惠秒杀平台</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="优惠券秒杀平台">优惠券秒杀平台</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">0</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                            </div>
+                        </div>
+                    </div>
+                                        <div class="layui-card">
+                        <div class="layui-card-header">知名音乐站</div>
+                        <div class="layui-card-body">
+                            <div class="layui-row layui-col-space20">
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.kekedj.com" target="_blank" class="linkView" data-id="11">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/5a296fa70ad53152e6c12b1b05c594b6.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">可可DJ音乐网</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="生活有音乐音乐有可可">生活有音乐音乐有可可</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">29</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.vvvdj.com/" target="_blank" class="linkView" data-id="2">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180128/628422879f6a327c581e7d910edcbb8f.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">清风DJ音乐网</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="好音质，更动人">好音质，更动人</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">113</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.ik123.com/" target="_blank" class="linkView" data-id="1">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/60b5144ebb3a620c8efa0e1124664e1d.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">深港DJ总站</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="深港DJ俱乐部 DJ舞曲 DJ音乐 最新DJ舞曲下载网站">深港DJ俱乐部 DJ舞曲 DJ音乐 最新DJ舞曲下载网站</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">66</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.djye.com" target="_blank" class="linkView" data-id="3">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/e481277217547ee0586405d22e90940a.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">DJ耶耶网</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="最好听的dj嗨嗨网歌曲">最好听的dj嗨嗨网歌曲</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">1</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.djkk.com/" target="_blank" class="linkView" data-id="4">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180131/3d8984e261d81e22f165480bd8ff0228.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">DJ嗨嗨网</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="第一原创舞曲dj网站 dj舞曲 超劲爆">第一原创舞曲dj网站 dj舞曲 超劲爆</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">9</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.72dj.com/" target="_blank" class="linkView" data-id="5">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/6cc0dfc9a8a4ed96548c856f4febb032.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">72DJ舞曲网</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="最新好听的dj舞曲免费下载网站">最新好听的dj舞曲免费下载网站</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">6</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="https://www.dj.net/" target="_blank" class="linkView" data-id="12">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/14b082406394e8f5714448b03ffe18f0.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">DJ音乐</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="原创电音DJ舞曲与夜店歌曲网站">原创电音DJ舞曲与夜店歌曲网站</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">4</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.bbdj.com" target="_blank" class="linkView" data-id="13">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/c022c723c7a814efa1a9360230e46f50.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">宝贝DJ音乐网</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="音质最好的DJ免费下载网站">音质最好的DJ免费下载网站</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">0</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.dj024.com" target="_blank" class="linkView" data-id="14">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180226/ae41fbeee349053425263ae0a52acc4e.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">沈阳DJ024娱乐传媒</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="首创360度环绕舞曲播放器,沈阳夜未央现场">首创360度环绕舞曲播放器,沈阳夜未央现场</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">3</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.hcdj.com/" target="_blank" class="linkView" data-id="15">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/c99bce4889ea92153e12cbd3f1f91320.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">DJ音乐厅</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="最新超劲爆好听的车载DJ舞曲免费下载网站">最新超劲爆好听的车载DJ舞曲免费下载网站</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">0</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.idj97.com/" target="_blank" class="linkView" data-id="16">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/536884cdfbec3d30be6aa2994be0d144.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">水晶dj网</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="好听的dj舞曲网站">好听的dj舞曲网站</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">3</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="https://88dj.com/" target="_blank" class="linkView" data-id="17">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/75d602a4b44ca27ee153e5dcadd7b05a.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">蓝白慢摇吧</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="88DJ舞曲网">88DJ舞曲网</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">1</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.y2002.com/" target="_blank" class="linkView" data-id="18">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/bc893b6ce239696173de4b7d46de370d.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">原创EDM分享</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="中国Electrical Discharge Machining电子DJ舞曲">中国Electrical Discharge Machining电子DJ舞曲</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">0</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.5ydj.com/" target="_blank" class="linkView" data-id="19">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/8ef71614a9fafe61c44d8fb7a7e1facf.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">新地DJ音乐网</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="高音质的DJ舞曲网站">高音质的DJ舞曲网站</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">0</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.djhaiba.com/" target="_blank" class="linkView" data-id="20">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/1d317f89a619cb8fe42083ccc74214e0.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">DJ嗨吧</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="DJ舞曲分享 MC喊麦 交谊舞 超劲爆">DJ舞曲分享 MC喊麦 交谊舞 超劲爆</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">0</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                            </div>
+                        </div>
+                    </div>
+                                        <div class="layui-card">
+                        <div class="layui-card-header">音乐门户</div>
+                        <div class="layui-card-body">
+                            <div class="layui-row layui-col-space20">
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://music.163.com" target="_blank" class="linkView" data-id="22">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/27a0603c96714ad46942f1916a191c13.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">网易云音乐</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="网易云音乐是一款专注于发现与分享的音乐产品">网易云音乐是一款专注于发现与分享的音乐产品</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">11</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://y.qq.com/" target="_blank" class="linkView" data-id="21">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/cd7e1206fa2dce296bcab1218be9a9fe.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">QQ音乐</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台">千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">18</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.kugou.com/" target="_blank" class="linkView" data-id="26">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/c8d0d536d87662feb23dfc4b65f94813.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">酷狗音乐 - 就是歌多</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="酷狗音乐旗下最新最全的在线正版音乐网站，本站为您免费提供最全的在线音乐试听下载，以及全球海量电台和MV播放服务、最新音乐播放器下载">酷狗音乐旗下最新最全的在线正版音乐网站，本站为您免费提供最全的在线音乐试听下载，以及全球海量电台和MV播放服务、最新音乐播放器下载</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">3</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://music.baidu.com/" target="_blank" class="linkView" data-id="28">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/36f0c9f24ee5ec587292be88e394292d.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">百度音乐</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="百度音乐-听到极致">百度音乐-听到极致</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">1</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.xiami.com/" target="_blank" class="linkView" data-id="27">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/3e57d8c6f6d7053a96678c603c10d665.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">虾米音乐(xiami.com)</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="阿里音乐旗下品牌 - 乐随心动">阿里音乐旗下品牌 - 乐随心动</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">1</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="https://music.douban.com/" target="_blank" class="linkView" data-id="25">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/36627e85a977cf19d123e1136baad2fb.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">豆瓣音乐</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="记录你想听的、在听和听过的唱片，顺便打分、添加标签及个人附注、写评论">记录你想听的、在听和听过的唱片，顺便打分、添加标签及个人附注、写评论</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">1</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                            </div>
+                        </div>
+                    </div>
+                                        <div class="layui-card">
+                        <div class="layui-card-header">音乐论坛</div>
+                        <div class="layui-card-body">
+                            <div class="layui-row layui-col-space20">
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://bbs.voc.com.cn/forum-20-1.html" target="_blank" class="linkView" data-id="29">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/71703ba98fa13a0b99df6d3b1d1ff513.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">华声论坛</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="全球中文论坛前十强">全球中文论坛前十强</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">2</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://bbs.musicool.cn/" target="_blank" class="linkView" data-id="23">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/7473b076bb13a50859766c4694c18689.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">炫音音乐论坛</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="总有一种声音能打动你！WAV无损音乐，FLAC无损音乐，APE发烧音乐，无损音乐等">总有一种声音能打动你！WAV无损音乐，FLAC无损音乐，APE发烧音乐，无损音乐等</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">4</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                                <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+                                    <a href="http://www.pt80.net/" target="_blank" class="linkView" data-id="24">
+                                        <div class="link-box">
+                                            <div class="link-icon layui-inline"><img src="/uploads/20180227/7936ff6fcac42b7bb8e24f39ae52cbb6.png"></div>
+                                            <div class="link-desc layui-inline">
+                                                <div class="name">捌零音乐论坛</div>
+                                                <div class="con add-tooltip layui-elip" data-toggle="tooltip" data-container="body" data-placement="bottom" data-original-title="聆听动人旋律 感悟精彩人生">聆听动人旋律 感悟精彩人生</div>
+                                                <div class="views"><i class="fa fa-eye"></i> <span class="hits">2</span> <i class="fa fa-bell mar-lft"></i> 0</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                                            </div>
+                        </div>
+                    </div>
+                                    </div>
+                <div class="layui-tab-item">
+                    <fieldset class="layui-elem-field layui-field-title alone-title">
+                        <legend>友链申请</legend>
+                    </fieldset>
+                    <!--link add-->
+                    <div class="layui-card">
+                        <div class="layui-card-header">友链申请</div>
+                        <div class="layui-card-body">
+                            <div class="layui-row">
+                                <div class="layui-col-md8 layui-col-md-offset2">
+                                    <form class="layui-form" action="">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">联系信息</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="mobile" required lay-verify="required" placeholder="QQ or 邮箱" autocomplete="off" class="layui-input">
+                                            </div>
+                                            <div class="layui-form-mid layui-word-aux">可填写您的QQ或邮箱</div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">网站类别</label>
+                                            <div class="layui-input-inline">
+                                                <select name="cid" lay-verify="required">
+                                                    <option value="0"></option>
+                                                                                                        <option value="1" >友情链接</option>
+                                                                                                        <option value="2" >知名音乐站</option>
+                                                                                                        <option value="3" >音乐门户</option>
+                                                                                                        <option value="4" >音乐论坛</option>
+                                                                                                    </select>
+                                            </div>
+                                            <div class="layui-form-mid layui-word-aux">将显示在该分类下</div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">投放类型</label>
+                                            <div class="layui-input-block">
+                                                <input type="checkbox" name="type" title="免费" checked lay-skin="primary">
+                                                <input type="checkbox" name="type" title="使用积分" disabled lay-skin="primary">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">网站LOGO</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="logo" autocomplete="off" class="layui-input">
+                                            </div>
+                                            <div class="pull-left layui-word-aux mar-no pad-no"><a href="JavaScript:;" id="uploadLink" class="layui-btn layui-btn-normal">上传</a></div>
+                                            <div class="layui-form-mid layui-word-aux">选填，仅支持jpg、jpeg、png格式，大小为 65 * 65</div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">网站标题</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="name" required lay-verify="required" placeholder="标题" autocomplete="off" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">网站URL</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="url" required lay-verify="required" placeholder="例如：http://www.ivusic.com" autocomplete="off" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item layui-form-text">
+                                            <label class="layui-form-label">网站简介</label>
+                                            <div class="layui-input-block">
+                                                <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <div class="layui-input-block">
+                                                <button class="layui-btn" lay-submit lay-filter="link">立即提交</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="fly-footer" style="margin-bottom: 60px;">
+    <p> 2018 &copy; <a href="http://www.ivusic.com/" target="_blank">ivusic.com 音乐网</a></p>
+    <p>
+        <a href="/index/link/index.html" data-pjax="">友情链接</a>
+        <a href="/index/about.html#about" data-pjax="">关于此网站</a>
+        <a href="/index/about.html#other" data-pjax="">免责声明</a>
+        <a href="http://www.miitbeian.gov.cn" target="_blank">备案号：粤ICP备17086522号</a>
+        <script src="https://s13.cnzz.com/z_stat.php?id=1272843078&web_id=1272843078" language="JavaScript"></script>
+        <script type="text/javascript" src="//js.users.51.la/19383727.js"></script>
+    </p>
+</div>
+<footer class="footer hidden bg-dark" style="background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);"> <!--播放器背景色-->
+    <div class="layui-container">
+        <div id="jp_container_N">
+            <div class="jp-type-playlist">
+                <div id="jplayer_N" class="jp-jplayer layui-hide"></div>
+                <div class="jp-gui">
+                    <div class="jp-video-play layui-hide">
+                        <a class="jp-video-play-icon">play</a>
+                    </div>
+                    <div class="jp-interface">
+                        <div class="jp-controls">
+                            <div><a class="jp-previous"><i class="icon-control-rewind i-lg"></i></a>
+                            </div>
+                            <div>
+                                <a class="jp-play"><i class="icon-control-play i-2x"></i></a>
+                                <a class="jp-pause hid"><i class="icon-control-pause i-2x"></i></a>
+                            </div>
+                            <div><a class="jp-next"><i class="icon-control-forward i-lg"></i></a></div>
+                            <div class="layui-hide"><a class="jp-stop"><i class="fa fa-stop"></i></a></div>
+                            <div><a class="" data-toggle="dropdown" data-target="#playlist"><i class="icon-list"></i></a></div>
+                            <div class="jp-progress layui-hide-xs">
+                                <div class="jp-seek-bar layui-bg-cyan"> <!--进度条背景色-->
+                                    <div class="jp-play-bar layui-bg-green" style="background-image: linear-gradient(to right, #48c6ef 0%, #6f86d6 100%);"></div> <!--播放条颜色-->
+                                    <!--background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);-->
+                                    <!--background-image: linear-gradient(to right, #209cff 0%, #68e0cf 100%);-->
+                                    <div class="jp-title text-lt"><ul><li></li></ul></div>
+                                </div>
+                            </div>
+                            <div class="layui-hide-xs hidden-sm jp-current-time text-xs text-muted"></div>
+                            <div class="layui-hide-xs hidden-sm jp-duration text-xs text-muted"></div>
+                            <div class="layui-hide-xs hidden-sm layui-hide">
+                                <a class="jp-mute" title="mute"><i class="icon-volume-2"></i></a>
+                                <a class="jp-unmute hid" title="unmute"><i class="icon-volume-off"></i></a>
+                            </div>
+                            <div class="layui-hide-xs hidden-sm jp-volume layui-hide">
+                                <div class="jp-volume-bar layui-bg-cyan">   <!--音量背景色-->
+                                    <div class="jp-volume-bar-value layui-bg-green" style="background-image: linear-gradient(to right, #48c6ef 0%, #6f86d6 100%);"></div> <!--音量选中颜色-->
+                                </div>
+                            </div>
+                            <!--收藏歌曲-->
+                            <div>
+
+                                <a href="javascript:;" class="active collectThis jp-love" data-toggle="class" data-id="0" data-mid="4">
+                                    <i class="fa fa-star-o text-active"></i>
+                                    <i class="fa fa-check-circle text-warning text"></i>
+                                </a>
+                            </div>
+                            <!--查看歌曲-->
+                            <div>
+                                <a href="javascript:void(0)" class="jp-look" title="查看" data-pjax=""><i class="fa fa-music text-lt"></i></a>
+                            </div>
+                            <!--下载歌曲-->
+                            <div>
+                                <a href="javascript:void(0)" class="jp-downloads" title="下载" data-pjax=""><i class="fa fa-cloud-download text-lt"></i></a>
+                            </div>
+                            <!--清空播放列表-->
+                            <div>
+                                <a href="javascript:void(0)" class="jp-clear" title="清空播放列表" data-pjax=""><i class="fa fa-trash text-lt"></i></a>
+                            </div>
+                            <!--播放模式-->
+                            <div class="layui-hide">
+                                <a class="jp-shuffle" title="随机播放"><i class="icon-shuffle text-muted"></i></a>
+                                <a class="jp-shuffle-off hid" title="shuffle off"><i class="icon-shuffle text-lt"></i></a>
+                            </div>
+                            <!--重复播放-->
+                            <div class="layui-hide">
+                                <a class="jp-repeat" title="重复播放"><i class="icon-loop text-muted"></i></a>
+                                <a class="jp-repeat-off hid" title="repeat off"><i class="icon-loop text-lt"></i></a>
+                            </div>
+                            <div class="layui-hide">
+                                <a class="jp-full-screen" title="full screen"><i class="fa fa-expand"></i></a>
+                                <a class="jp-restore-screen" title="restore screen"><i class="fa fa-compress text-lt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="jp-playlist dropup" id="playlist">
+                    <ul class="dropdown-menu aside-xl animated slideInUp" style="background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);"> <!--列表背景色-->
+                        <!--bounceIn -->
+                        <!-- The method Playlist.displayPlaylist() uses this unordered list -->
+                        <li class="list-group-item"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--JAVASCRIPT-->
+<script src="/static/js/jquery-1.10.2.min.js"></script>
+<script src="/static/js/jquery.cookie.js"></script>
+<script src="/static/js/jquery.pjax.js"></script>
+
+<!-- Bootstrap And Player -->
+<script src="/static/hack/layui/layui.js"></script>
+<script src="/static/index/default/js/nifty.min.js"></script>
+<script src="/static/index/default/plugins/nprogress/nprogress.js"></script>
+<script src="/static/index/jPlayer/bootstrap.js"></script>
+<script src="/static/index/jPlayer/jquery.jplayer.min.js"></script>
+<script src="/static/index/jPlayer/add-on/jplayer.playlist.js"></script>
+<script src="/static/index/jPlayer/jplayer.init.js"></script>
+<script>
+    layui.config({
+        version: "2.0"
+        , base: '/static/index//mods/' //这里实际使用时，建议改成绝对路径
+    }).use('music');
+</script>
+</body>
+</html>
+
+

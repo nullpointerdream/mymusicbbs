@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root name="管理系统">
+    <manager name="系统管理" type="0">
+        <link href="./sys_jsp/admin/admin_add.jsp" name="添加用户" type="0"/>
+        <link href="admin/admin_query.do?username=" name="管理用户" type="0"/>
+         <link href="musicInfo/musicInfo_querysoucang.do" name="收藏歌曲统计" type="0"/>
+    </manager>
+    <manager name="个人信息管理" type="1">
+        <link href="./sys_jsp/admin/admin_changePassword.jsp" name="修改密码" type="0"/>
+    </manager>
+    <manager name="公告管理"  type="0">
+        <link href="./plugin_jsp/announce/announce_add.jsp" name="添加公告" type="0"/>
+        <link href="./plugin_jsp/announce/announce_query.jsp" name="查询公告" type="0"/>
+    </manager>
+  
+    <manager name="分类管理" type="1">
+        <link href="./pro_jsp/classify/classify_add.jsp" name="添加分类" type="0"/>
+        <link href="classify/classify_query.do" name="查询分类" type="0"/>
+    </manager>
+  
+   
+    <manager name="歌曲信息管理" type="1">
+        <link href="musicInfo/musicInfo_query.do" name="查询歌曲信息" type="0"/>
+    </manager>
+    <manager name="社团动态管理" type="1">
+        <link href="./pro_jsp/news/news_add.jsp" name="添加社团动态" type="0"/>
+        <link href="news/news_query.do" name="查询社团动态" type="0"/>
+    </manager>
+    <manager name="评论信息管理" type="1">
+        <link href="pingLun/pingLun_query.do" name="查询评论信息" type="0"/>
+    </manager>
+    
+</root>
