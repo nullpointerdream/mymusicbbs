@@ -10,5 +10,7 @@
 <property access="field" column="t_datetime" length="200" name="datetime"/>
 <property access="field" column="t_type" length="200" name="type"/>
 <property access="field" column="t_img" length="200" name="img"/>
+<property access="field" column="t_ishot" length="200" name="ishot"/>
+<property access="field" column="t_istop" length="200" name="istop"/>
 </class>
 </hibernate-mapping>

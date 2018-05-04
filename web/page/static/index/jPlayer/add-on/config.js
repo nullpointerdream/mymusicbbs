@@ -1,7 +1,7 @@
 const app = (() => {
     return {
         config: {
-            baseUrl: 'http://localhost/MusicWeb'
+            baseUrl: 'http://localhost:8080/MusicWeb'
         }
     };
 })();

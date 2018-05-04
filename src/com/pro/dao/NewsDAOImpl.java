@@ -44,7 +44,19 @@ public class NewsDAOImpl extends BaseDAO<News, Integer> {
 	@Override
 	public Page getRecord(String column, String order,
                           DefaultQueryCondition condition) {
-		// TODO Auto-generated method stub
-		return null;
+		News entity = (News)condition.getCondition();
+		Criterion cr1 = null;
+		if(CommonUtil.isNotEmpty(entity.getTitle())) {
+			cr1 = Restrictions.like("title",entity.getTitle(), MatchMode.ANYWHERE);
+		}
+		Criterion cr2 = null;
+		if(CommonUtil.isNotEmpty(entity.getContent())) {
+			cr2 = Restrictions.like("content",entity.getContent(), MatchMode.ANYWHERE);
+		}
+		Criterion cr3 = null;
+		if(CommonUtil.isNotEmpty(entity.getUsername())) {
+			cr3 = Restrictions.like("username",entity.getUsername(), MatchMode.ANYWHERE);
+		}
+		return this.getPagers(column,order,condition,cr1,cr2,cr3);
 	}
 }

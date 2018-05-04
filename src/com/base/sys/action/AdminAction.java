@@ -367,22 +367,21 @@ public class AdminAction {
 	}
 	public String home() {
 		MusicInfo entity = new MusicInfo();
-		entity.setShenhe("通过");
 		condition = new DefaultQueryCondition(entity);
 		condition.setPageSize(10);
-		Page<MusicInfo> page = this.musicInfoManager.getRecords(condition);
+		Page<MusicInfo> page = this.musicInfoManager.getRecords("date","DESC",condition);
 		List<MusicInfo> resultList = page.getList();
 		News news = new News();
 		DefaultQueryCondition defaultQueryCondition = new DefaultQueryCondition(news);
 		defaultQueryCondition.setPageSize(10);
-		Page<News> page2 = this.newsManager.getRecords(defaultQueryCondition);
+		Page<News> page2 = this.newsManager.getRecords("datetime","DESC",defaultQueryCondition);
 		List<News> resultList2 = page2.getList();
-		ApplyInfo apply = new ApplyInfo();
-		apply.setStatus("审核通过");
-		condition = new DefaultQueryCondition(apply);
-		condition.setPageSize(10);
-		Page<ApplyInfo> page3 = this.applyInfoManager.getRecords(condition);
-		List<ApplyInfo> resultList3 = page3.getList();
+		Admin admin = new Admin();
+		admin.setUsertype("3");
+		condition = new DefaultQueryCondition(admin);
+		condition.setPageSize(8);
+		Page<Admin> page3 = this.adminManager.getAdminList("accountCreateTime","DESC",condition);
+		List<Admin> resultList3 = page3.getList();
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT3, resultList3);
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT, resultList);
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT2, resultList2);

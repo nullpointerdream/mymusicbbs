@@ -294,5 +294,6 @@
 			</div>
 		</div>
 	</footer>
+	<script src="<%=basePath%>/page/static/index/jPlayer/jplayer.init.js"></script>
 </body>
 </html>

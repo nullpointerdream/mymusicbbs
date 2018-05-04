@@ -56,4 +56,7 @@ public class NewsManager{
         return this.newsDAOImpl.getRecord(condition);
     }
 
+    public Page<News> getRecords(String string, String string2, DefaultQueryCondition condition) {
+        return this.newsDAOImpl.getRecord(string,string2,condition);
+    }
 }

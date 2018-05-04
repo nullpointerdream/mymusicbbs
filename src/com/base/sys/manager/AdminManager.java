@@ -69,7 +69,9 @@ public class AdminManager {
 	public Page<Admin> getAdminList(DefaultQueryCondition<Admin> condition) {
 		return this.adminDAOImpl.getRecord(condition);
 	}
-	
+	public Page<Admin> getAdminList(String one,String one2,DefaultQueryCondition<Admin> condition) {
+		return this.adminDAOImpl.getRecord(one,one2,condition);
+	}
 	public Admin getSysAdminById(String username) {
 		return (Admin)this.adminDAOImpl.getById(username);
 	}

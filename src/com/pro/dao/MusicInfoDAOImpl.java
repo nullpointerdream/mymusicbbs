@@ -60,8 +60,32 @@ public class MusicInfoDAOImpl extends BaseDAO<MusicInfo, Integer> {
 	@Override
 	public Page getRecord(String column, String order,
                           DefaultQueryCondition condition) {
-		// TODO Auto-generated method stub
-		return null;
+		MusicInfo entity = (MusicInfo)condition.getCondition();
+		Criterion cr1 = null;
+		if(CommonUtil.isNotEmpty(entity.getTypes())) {
+			cr1 = Restrictions.like("types",entity.getTypes(), MatchMode.ANYWHERE);
+		}
+		Criterion cr2 = null;
+		if(CommonUtil.isNotEmpty(entity.getMusicname())) {
+			cr2 = Restrictions.like("musicname",entity.getMusicname(), MatchMode.ANYWHERE);
+		}
+		Criterion cr3 = null;
+		if(CommonUtil.isNotEmpty(entity.getUserid())) {
+			cr3 = Restrictions.like("userid",entity.getUserid(), MatchMode.ANYWHERE);
+		}
+		Criterion cr4 = null;
+		if(CommonUtil.isNotEmpty(entity.getRenqi())) {
+			cr4 = Restrictions.like("renqi",entity.getRenqi(), MatchMode.ANYWHERE);
+		}
+		Criterion cr5 = null;
+		if(CommonUtil.isNotEmpty(entity.getTuijian())) {
+			cr5 = Restrictions.like("tuijian",entity.getTuijian(), MatchMode.ANYWHERE);
+		}
+		Criterion cr6 = null;
+		if(CommonUtil.isNotEmpty(entity.getShenhe())) {
+			cr6 = Restrictions.like("shenhe",entity.getShenhe(), MatchMode.ANYWHERE);
+		}
+		return this.getPagers(column,order,condition,cr1,cr2,cr3,cr4,cr5,cr6);
 	}
 
 	

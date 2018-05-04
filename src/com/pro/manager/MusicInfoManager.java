@@ -70,4 +70,8 @@ public class MusicInfoManager{
         return this.musicInfoDAOImpl.getViaHql("from PingLun where musicid ="+m_id);
     }
 
+    public Page<MusicInfo> getRecords(String string, String string2, DefaultQueryCondition condition) {
+        return this.musicInfoDAOImpl.getRecord(string,string2,condition);
+    }
+
 }

@@ -46,7 +46,15 @@ public class AdminDAOImpl extends BaseDAO<Admin, String> {
 	
 	public Page getRecord(String column, String order,
                           DefaultQueryCondition condition) {
-		// TODO Auto-generated method stub
-		return null;
+		Admin adm = (Admin) condition.getCondition();
+		Criterion cr1 = null;
+		Criterion cr2 = null;
+		if (CommonUtil.isNotEmpty(adm.getUsername())) {
+			cr1 = Restrictions.like("username", adm.getUsername(), MatchMode.ANYWHERE);
+		}
+		if (CommonUtil.isNotEmpty(adm.getUsertype())) {
+			cr2 = Restrictions.eq("usertype", adm.getUsertype());
+		}
+		return this.getPagers(column,order,condition, cr1, cr2);
 	}
 }

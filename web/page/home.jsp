@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="baidu-site-verification" content="Z6vOHj2Lpk" />
 <title>iVusic - 做全网最好的DJ音乐站</title>
-<%@ include file="/page/index/common/common.jsp"%>  
- 
+<%@ include file="/page/index/common/common.jsp"%>
+
 </head>
 <body>
-	<jsp:include  page="/page/index/common/header.jsp"/>  
+	<jsp:include  page="/page/index/common/header.jsp"/>
 	<div class="page-loading">
 		<div id="loader"></div>
 		<div class="loader-section section-left"></div>
@@ -21,7 +23,7 @@
 
 	<!--Pjax Start-->
 	<div id="container">
-		<jsp:include  page="/page/index/common/header2.jsp"/>  
+		<jsp:include  page="/page/index/common/header2.jsp"/>
 		<div class="layui-container">
 			<div class="layui-row layui-col-space15">
 				<div class="layui-col-md8">
@@ -68,7 +70,7 @@
 							<c:forEach items="${result2}" var="record">
 									<li><a href="<%=basePath %>news/news_detail4front.do?id=${record.id }" data-pjax>${record.title}</a></li>
 								</c:forEach>
-							
+
 							</ul>
 						</div>
 					</div>
@@ -83,7 +85,7 @@
                         <li class="layui-this">推荐</li>
                         <li class="pull-right"><a href="<%=basePath%>musicInfo/musicInfo_list.do" data-pjax="">更多</a></li>
                     </ul>
-						
+
 						<div class="layui-tab-content" style="padding: 0">
 							<div class="layui-tab-item layui-show">
 								<div class="layui-row">
@@ -109,7 +111,7 @@
 														<td><a href="<%=basePath%>musicInfo/musicInfo_musicInfo.do?id=${record.id }" title="${record.musicname }">${record.musicname }</a></td>
 														<td style="max-width: 400px;" class="layui-elip"><a
 															href="<%=basePath %>admin/admin_userInfoById.do?username=${record.username}"
-															 > 
+															 >
 																${record.username}(${record.types})
 																</a></td>
 														<td><i class="fa fa-fire" style="color:red"></i> ${record.renqi} </td>
@@ -141,551 +143,6 @@
 					</div>
 				</div>
 
-				<div class="layui-col-md12">
-					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-						<ul class="layui-tab-title">
-							<li class="layui-this">最新</li>
-							<li>热门</li>
-							<li class="pull-right"><a href="./index/topic/index.html"
-								data-pjax="">更多</a></li>
-						</ul>
-						<div class="layui-tab-content" style="padding: 10px 0 0 0">
-							<div class="layui-tab-item layui-show">
-								<div class="grid">
-									<ul class="layui-row layui-col-space15">
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/683.html" title="" data-pjax>
-														<img width="280" height="180" alt="苏荷全榜单MashUp经典热播歌路"
-														src="<%=basePath%>/page/uploads/20180319/9e528a880dc2cbcefd34a9e014dda7ee.png">
-													</a>
-												</div>
-
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/819.html" title="" data-pjax>
-														<img width="280" height="180" alt="三月中文DJ舞曲1"
-														src="<%=basePath%>/page/uploads/20180319/613a8947a19ab25025bef9f38299e69c.png">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/819.html"
-																title="三月中文DJ舞曲1" data-pjax> 三月中文DJ舞曲1 </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/819.html" data-pjax>61
-															首歌曲，播放需约408分钟</a> <span>3170<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-03-19</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/819.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1140.html" title=""
-														data-pjax> <img width="280" height="180"
-														alt="客户定制-中文车载串烧DJ舞曲"
-														src="<%=basePath%>/page/uploads/20180319/af36ae031e98a8c7a3b7366cf74993d7.png">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1140.html"
-																title="客户定制-中文车载串烧DJ舞曲" data-pjax> 客户定制-中文车载串烧DJ舞曲 </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1140.html" data-pjax>22
-															首歌曲，播放需约1282分钟</a> <span>1471<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-03-19</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1140.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1374.html" title=""
-														data-pjax> <img width="280" height="180"
-														alt="第3288批 国内连锁派对酒吧主场轰炸特制歌路"
-														src="<%=basePath%>/page/uploads/20180314/fdf50ccbbf314a0c04c872e898c55ef8.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1374.html"
-																title="第3288批 国内连锁派对酒吧主场轰炸特制歌路" data-pjax> 第3288批
-																国内连锁派对酒吧主场轰炸特制歌路 </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1374.html" data-pjax>30
-															首歌曲，播放需约243分钟</a> <span>2816<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-03-14</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1374.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1376.html" title=""
-														data-pjax> <img width="280" height="180"
-														alt="第016批 前场串烧 共计010首 - 各站收集整理"
-														src="<%=basePath%>/page/uploads/20180314/e863e3605203288703ff01ae6a3ca6f0.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1376.html"
-																title="第016批 前场串烧 共计010首 - 各站收集整理" data-pjax> 第016批
-																前场串烧 共计010首 - 各站收集整理 </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1376.html" data-pjax>10
-															首歌曲，播放需约711分钟</a> <span>3310<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-03-14</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1376.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1247.html" title=""
-														data-pjax> <img width="280" height="180"
-														alt="顶级精品MashUp (可可DJ Music音乐厂牌)"
-														src="<%=basePath%>/page/uploads/20180223/3f3aab2289484ddbf14f3c4d5465e275.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1247.html"
-																title="顶级精品MashUp (可可DJ Music音乐厂牌)" data-pjax>
-																顶级精品MashUp (可可DJ Music音乐厂牌) </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1247.html" data-pjax>39
-															首歌曲，播放需约182分钟</a> <span>1264<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-02-23</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1247.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1254.html" title=""
-														data-pjax> <img width="280" height="180"
-														alt="首首精心修剪炸场EDM思路(可可DJ Music音乐厂牌)"
-														src="<%=basePath%>/page/uploads/20180223/29d580842fb5c0b95f75e2e52f428687.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1254.html"
-																title="首首精心修剪炸场EDM思路(可可DJ Music音乐厂牌)" data-pjax>
-																首首精心修剪炸场EDM思路(可可DJ Music音乐厂牌) </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1254.html" data-pjax>25
-															首歌曲，播放需约116分钟</a> <span>4871<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-02-23</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1254.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1282.html" title=""
-														data-pjax> <img width="280" height="180"
-														alt="KEKEDJ音乐厂牌 客户定制早场Mashup榜单歌路"
-														src="<%=basePath%>/page/uploads/20180223/d73ac8d7f176673e9b4856e867714bd5.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1282.html"
-																title="KEKEDJ音乐厂牌 客户定制早场Mashup榜单歌路" data-pjax>
-																KEKEDJ音乐厂牌 客户定制早场Mashup榜单歌路 </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1282.html" data-pjax>18
-															首歌曲，播放需约113分钟</a> <span>4235<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-02-23</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1282.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="layui-tab-item">
-								<div class="grid">
-									<ul class="layui-row layui-col-space15">
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1254.html"
-														title="首首精心修剪炸场EDM思路(可可DJ Music音乐厂牌)" data-pjax> <img
-														width="280" height="180"
-														alt="首首精心修剪炸场EDM思路(可可DJ Music音乐厂牌)"
-														src="<%=basePath%>/page/uploads/20180223/29d580842fb5c0b95f75e2e52f428687.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1254.html"
-																title="首首精心修剪炸场EDM思路(可可DJ Music音乐厂牌)" data-pjax>
-																首首精心修剪炸场EDM思路(可可DJ Music音乐厂牌) </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1254.html" data-pjax>25
-															首歌曲，播放需约116分钟</a> <span>4871<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-02-23</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1254.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1295.html"
-														title="DonnyB2B歌单ArminvanBuurenvsHardwell" data-pjax>
-														<img width="280" height="180"
-														alt="DonnyB2B歌单ArminvanBuurenvsHardwell"
-														src="<%=basePath%>/page/uploads/20180222/766f6a167570f38b7981e684f741726e.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1295.html"
-																title="DonnyB2B歌单ArminvanBuurenvsHardwell" data-pjax>
-																DonnyB2B歌单ArminvanBuurenvsHardwell </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1295.html" data-pjax>14
-															首歌曲，播放需约60分钟</a> <span>4673<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-02-22</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1295.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1240.html"
-														title="客户定制前场轻松感觉Trance歌路(可可DJ Music音乐厂牌)" data-pjax>
-														<img width="280" height="180"
-														alt="客户定制前场轻松感觉Trance歌路(可可DJ Music音乐厂牌)"
-														src="<%=basePath%>/page/uploads/20180202/1e5acb1d9314425c157f358c576c9452.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1240.html"
-																title="客户定制前场轻松感觉Trance歌路(可可DJ Music音乐厂牌)" data-pjax>
-																客户定制前场轻松感觉Trance歌路(可可DJ Music音乐厂牌) </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1240.html" data-pjax>14
-															首歌曲，播放需约74分钟</a> <span>4644<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-02-02</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1240.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>1</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1282.html"
-														title="KEKEDJ音乐厂牌 客户定制早场Mashup榜单歌路" data-pjax> <img
-														width="280" height="180" alt="KEKEDJ音乐厂牌 客户定制早场Mashup榜单歌路"
-														src="<%=basePath%>/page/uploads/20180223/d73ac8d7f176673e9b4856e867714bd5.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1282.html"
-																title="KEKEDJ音乐厂牌 客户定制早场Mashup榜单歌路" data-pjax>
-																KEKEDJ音乐厂牌 客户定制早场Mashup榜单歌路 </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1282.html" data-pjax>18
-															首歌曲，播放需约113分钟</a> <span>4235<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-02-23</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1282.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1260.html"
-														title="商业电子特制作版(可可DJ Music音乐厂牌)" data-pjax> <img
-														width="280" height="180" alt="商业电子特制作版(可可DJ Music音乐厂牌)"
-														src="<%=basePath%>/page/uploads/20180202/a66ba2917788929225aa79e5ebd60e64.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1260.html"
-																title="商业电子特制作版(可可DJ Music音乐厂牌)" data-pjax>
-																商业电子特制作版(可可DJ Music音乐厂牌) </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1260.html" data-pjax>12
-															首歌曲，播放需约58分钟</a> <span>4146<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-02-02</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1260.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1293.html"
-														title="本色电子百大EDM电子121点主场气氛套曲歌路" data-pjax> <img
-														width="280" height="180" alt="本色电子百大EDM电子121点主场气氛套曲歌路"
-														src="<%=basePath%>/page/uploads/20180223/540bba84458936b1f4b6fee399c16369.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1293.html"
-																title="本色电子百大EDM电子121点主场气氛套曲歌路" data-pjax>
-																本色电子百大EDM电子121点主场气氛套曲歌路 </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1293.html" data-pjax>12
-															首歌曲，播放需约87分钟</a> <span>3956<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-02-02</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1293.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>2
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/1278.html"
-														title="前场待客歌路 Rnb Hiphop(可可DJ音乐网)" data-pjax> <img
-														width="280" height="180" alt="前场待客歌路 Rnb Hiphop(可可DJ音乐网)"
-														src="<%=basePath%>/page/uploads/20180202/30fc27232304f0efdcb13f764be557f3.jpg">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/1278.html"
-																title="前场待客歌路 Rnb Hiphop(可可DJ音乐网)" data-pjax> 前场待客歌路
-																Rnb Hiphop(可可DJ音乐网) </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/1278.html" data-pjax>25
-															首歌曲，播放需约112分钟</a> <span>3875<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-02-02</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/1278.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-										<li class="group layui-col-md3">
-											<div class="item">
-												<div class="thumb">
-													<a href="./index/topic/show/id/683.html"
-														title="苏荷全榜单MashUp经典热播歌路" data-pjax> <img width="280"
-														height="180" alt="苏荷全榜单MashUp经典热播歌路"
-														src="<%=basePath%>/page/uploads/20180319/9e528a880dc2cbcefd34a9e014dda7ee.png">
-													</a>
-												</div>
-												<div class="meta">
-													<div class="title">
-														<h2>
-															<a href="./index/topic/show/id/683.html"
-																title="苏荷全榜单MashUp经典热播歌路" data-pjax>
-																苏荷全榜单MashUp经典热播歌路 </a>
-														</h2>
-													</div>
-													<div class="extra">
-														<i class="fa fa-bookmark"></i> <a
-															href="./index/topic/show/id/683.html" data-pjax>13
-															首歌曲，播放需约69分钟</a> <span>3858<i class="fa fa-fire"></i></span>
-													</div>
-												</div>
-												<div class="data">
-													<time class="time">2018-03-19</time>
-													<span class="comment-num"> <a
-														href="./index/topic/show/id/683.html#comments"
-														class="comments-link" data-pjax> <i
-															class="fa fa-comment"></i>0
-													</a>
-													</span> <span class="heart-num"><i class="fa fa-heart"></i>0</span>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 
 				<div class="layui-col-md12">
 					<fieldset class="layui-elem-field layui-field-title alone-title"
@@ -697,22 +154,23 @@
 						   <div class="layui-col-md3">
 							<div class="panel">
 								<div class="panel-body text-center">
-									<img alt="陈永强" class="img-lg img-circle mar-btm"
+									<img alt="${record.remark}" class="img-lg img-circle mar-btm"
 										src="<%=basePath %>attachment/${record.file}">
-									<p class="text-lg text-semibold mar-no text-main">${record.stuname}&nbsp;  优秀歌手 </p>
+									<p class="text-lg text-semibold mar-no text-main">${record.remark}&nbsp;  新入住 </p>
 									<div class="text-muted" style="min-height: 50px;">
-									<p>学院：${record.college}</p>
-									<p>专业：${record.zy}</p>
+										<p>性别：<c:if test="${record.gender==1}">男</c:if><c:if test="${record.gender==2}">女</c:if></p>
+									<p>${fn:substring(record.accountCreateTime, 0, 10)}</p>
+
 									</div>
 									<div class="mar-top">
-										<a  href="<%=basePath %>admin/admin_detail4front.do?username=${record.id}" data-pjax=""
+										<a  href="<%=basePath %>admin/admin_detail4front.do?username=${record.username}" data-pjax=""
 											class="btn btn-mint">他的主页</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						</c:forEach>
-						
+
 					</div>
 				</div>
 
@@ -869,7 +327,10 @@
 	</div>
 	</footer>
 
-	
- 
+
+	<script src="<%=basePath%>/page/static/index/jPlayer/jplayer.init.js"></script>
+
+
+
 </body>
 </html>

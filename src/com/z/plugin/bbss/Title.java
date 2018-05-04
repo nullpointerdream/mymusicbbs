@@ -29,7 +29,25 @@ public class Title extends BaseEntity {
 	
 	@EntityAnnotation(beanName="发布人头像", needShow = false)
 	private String img;
-	
+
+	private String istop;
+	private String ishot;
+
+	public String getIstop() {
+		return istop;
+	}
+
+	public void setIstop(String istop) {
+		this.istop = istop;
+	}
+
+	public String getIshot() {
+		return ishot;
+	}
+
+	public void setIshot(String ishot) {
+		this.ishot = ishot;
+	}
 
 	/*s*/
 
