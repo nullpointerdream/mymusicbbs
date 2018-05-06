@@ -75,6 +75,5 @@ public class AdminManager {
 	public Admin getSysAdminById(String username) {
 		return (Admin)this.adminDAOImpl.getById(username);
 	}
-	
-		
+
 }

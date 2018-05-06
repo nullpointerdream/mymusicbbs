@@ -1,6 +1,10 @@
 package com.pro.action;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.base.common.util.AjaxReturnInfo;
 import com.base.common.util.Const;
 import com.base.common.util.EntityAnnotation;
+import com.base.sys.entity.Admin;
 import com.pro.entity.News;
 import com.base.pagination.util.DefaultQueryCondition;
 import com.base.pagination.util.Page;
@@ -97,27 +101,26 @@ public class NewsAction {
 
 	private DefaultQueryCondition condition;
 	private Page page;
-	public String add() {
+	public void add() {
 		News entity = new News();
+		JSONObject jsonObject = new JSONObject();
 		try {
+			HttpServletRequest request = ServletActionContext.getRequest();
+			Admin admin = (Admin) request.getSession().getAttribute("u");
 			entity.setContent(this.content);
 			entity.setTitle(this.title);
-			entity.setUserid(this.userid);
-			entity.setUsername(this.username);
+			entity.setUserid(admin.getUsername());
+			entity.setUsername(admin.getRemark());
 			SimpleDateFormat s=new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
 			entity.setDatetime(s.format(new Date()));
 			this.newsManager.add(entity);
-			String returnMsg = BTAGI18N.getI18NValue("add.success", "common");
-			ActionContext.getContext().put(Const.Notification.SUCCESS, returnMsg);
-			
-			this.title =null;
-			content = null;
-			username = null;
-			return Const.Pages.MAPPING_URL;
+			jsonObject.put("code",200);
+			jsonObject.put("msg","添加成功");
 		} catch(Exception e) {
-			ActionContext.getContext().put(Const.Notification.ERROR, e.getMessage());
-			return Const.Pages.MAPPING_URL;
+			jsonObject.put("code",400);
+			jsonObject.put("msg","添加失败");
 		}
+		AjaxReturnInfo.stringPrint(jsonObject.toJSONString());
 	}
 
 	public String del() {

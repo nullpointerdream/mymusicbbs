@@ -48,11 +48,19 @@ public class TitleAction {
 	@EntityAnnotation(desc="发布者",  needUpdate=false, isQueryField = true, rule ="CHAR_M")
 	private String username;
 	private String type;
+	private String ishot;
 	private String img;
 	@EntityAnnotation(desc="时间", needUpdate=false, rule ="DATE_N")
 	private Date datetime;
-	
-	
+
+	public String getIshot() {
+		return ishot;
+	}
+
+	public void setIshot(String ishot) {
+		this.ishot = ishot;
+	}
+
 	public String getImg() {
 		return img;
 	}
@@ -124,6 +132,7 @@ public class TitleAction {
 	public String tofatie() {
 		return "fatie";
 	}
+
 	public void add() throws Exception {
 		Title entity = new Title();
 		Map<String,Object> map = new HashMap<>();
@@ -131,7 +140,7 @@ public class TitleAction {
 		if(request.getSession().getAttribute("u") != null){
 			Admin admin= (Admin) request.getSession().getAttribute("u");
 			entity.setContent(this.content);
-			entity.setTitle(this.type);
+			entity.setType(this.type);
 			entity.setUserid(admin.getUsername());
 			entity.setUsername(admin.getRemark());
 			SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -157,49 +166,43 @@ public class TitleAction {
 		ActionContext.getContext().put("list", queryByHql);
 		return "addui";
 	}
-	public String add4front() {
-		Title entity = new Title();
-		try {
-			HttpServletRequest request = ServletActionContext.getRequest();
-			String userid =  "admin";
-			if(request.getSession().getAttribute("frontUsername") != null){
-				 userid = (String) request.getSession().getAttribute("frontUsername");
-			}
-			
-			entity.setContent(this.content);
-			entity.setUserid((String)request.getSession().getAttribute("u"));
-			//entity.setUsername(this.username);
-			entity.setUsername(userid);
-			Date dd = new Date();
-			SimpleDateFormat sfd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			
-			SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			entity.setDatetime(s.format(new Date()));
-			entity.setTitle(this.title);
-			this.titleManager.add(entity);
-			content="";
-			userid ="";
-			username = "";
-			datetime =null;
-			title = null;
-			String returnMsg = BTAGI18N.getI18NValue("add.success", "common");
-			ActionContext.getContext().put(Const.Notification.SUCCESS, returnMsg);
-			return "queryDO4front";
-		} catch(Exception e) {
-			ActionContext.getContext().put(Const.Notification.ERROR, e.getMessage());
-			content="";
-			userid ="";
-			username = "";
-			datetime =null;
-			title = null;
-			return Const.Pages.MAPPING_URL;
-		}
+	public String addAdminUI() {
+		List<Classify> queryByHql = classifyManager.queryByHql("from Classify ");
+		ActionContext.getContext().put("list", queryByHql);
+		return "addAdminUI";
 	}
+
 	
 	public String del() {
 		this.titleManager.deleteViaId(this.id);
 		ActionContext.getContext().put(Const.Notification.SUCCESS, BTAGI18N.getI18NValue("delete.success", "common"));
 		return "delDO";
+	}
+
+	public String admindel() {
+		this.titleManager.deleteViaId(this.id);
+		ActionContext.getContext().put(Const.Notification.SUCCESS, BTAGI18N.getI18NValue("delete.success", "common"));
+		return Const.Pages.QUERY_DO;
+	}
+	public String hot() {
+		Title title=titleManager.queryById(this.id);
+		if("1".equals(title.getIshot())){
+			title.setIshot("0");
+		}else{
+			title.setIshot("1");
+		}
+			this.titleManager.update(title);
+		return Const.Pages.QUERY_DO;
+	}
+	public String top() {
+		Title title=titleManager.queryById(this.id);
+		if("1".equals(title.getIstop())){
+			title.setIstop("0");
+		}else{
+			title.setIstop("1");
+		}
+		this.titleManager.update(title);
+		return Const.Pages.QUERY_DO;
 	}
 
 	public String dels() {
@@ -212,34 +215,8 @@ public class TitleAction {
 		}
 		return Const.Pages.QUERY_DO;
 	}
-	public String del4message() {
-		this.messageManager.deleteViaId(this.id);
-		//ActionContext.getContext().put(Const.Notification.SUCCESS, BTAGI18N.getI18NValue("delete.success", "common"));
-		//return Const.Pages.QUERY_DO;
-		
-		Message entity = new Message();
-		//entity.setContent(this.content);
-		//entity.setUsername(this.username);
-		entity.setTitle(this.title);
-		condition = new DefaultQueryCondition(entity);
-		HttpServletRequest request = ServletActionContext.getRequest();
-		String curPage = request.getParameter(Page.CURRENT_PAGE);
-		String pageSize = request.getParameter(Page.PAGE_SIZE);
-		if (CommonUtil.isNotEmpty(curPage)) {
-			condition.setPageIndex(Integer.parseInt(curPage));
-		}
-		if (CommonUtil.isNotEmpty(pageSize)) {
-			condition.setPageSize(Integer.parseInt(pageSize));
-		}
-		Page<Message> page = this.messageManager.getRecords(condition);
-		List<Message> resultList = page.getList();
-		ActionContext.getContext().put(Const.Action.PAGE_REUSLT, resultList);
-		ActionContext.getContext().put(Const.Action.PAGINATION_INFO,page.getNavigation());
-		ActionContext.getContext().put(Page.CURRENT_PAGE, page.getCurrentPage());
-		return "toallmessage";
-	}
-	
-	
+
+
 	public String update() {
 		Title entity = this.titleManager.queryById(this.id);
 		entity.setContent(this.content);
@@ -254,29 +231,7 @@ public class TitleAction {
 		return Const.Pages.MAPPING_URL;
 	}
 
-	public String edittomessage() {
-	
-		
-		Message entity = new Message();
-	
-		entity.setTitle(this.id+"");
-		condition = new DefaultQueryCondition(entity);
-		HttpServletRequest request = ServletActionContext.getRequest();
-		String curPage = request.getParameter(Page.CURRENT_PAGE);
-		String pageSize = request.getParameter(Page.PAGE_SIZE);
-		if (CommonUtil.isNotEmpty(curPage)) {
-			condition.setPageIndex(Integer.parseInt(curPage));
-		}
-		if (CommonUtil.isNotEmpty(pageSize)) {
-			condition.setPageSize(Integer.parseInt(pageSize));
-		}
-		Page<Message> page = this.messageManager.getRecords(condition);
-		List<Message> resultList = page.getList();
-		ActionContext.getContext().put(Const.Action.PAGE_REUSLT, resultList);
-		ActionContext.getContext().put(Const.Action.PAGINATION_INFO,page.getNavigation());
-		ActionContext.getContext().put(Page.CURRENT_PAGE, page.getCurrentPage());
-		return "toallmessage";
-	}
+
 	
 	public String detail() {
 		Title entity = this.titleManager.queryById(this.id);
@@ -284,35 +239,6 @@ public class TitleAction {
 		return Const.Pages.MAPPING_URL;
 	}
 
-	public String detail4gentie() throws ParseException {
-		Title entity2 = this.titleManager.queryById(this.id);
-		ActionContext.getContext().put(Const.Action.PAGE_REUSLT, entity2);
-		
-		/*Message entity = new Message();
-		//entity.setContent(this.content);
-		//entity.setUsername(this.username);
-		entity.setTitle(this.id+"");
-		condition = new DefaultQueryCondition(entity);
-		HttpServletRequest request = ServletActionContext.getRequest();
-		String curPage = request.getParameter(Page.CURRENT_PAGE);
-		String pageSize = request.getParameter(Page.PAGE_SIZE);
-		if (CommonUtil.isNotEmpty(curPage)) {
-			condition.setPageIndex(Integer.parseInt(curPage));
-		}
-		if (CommonUtil.isNotEmpty(pageSize)) {
-			condition.setPageSize(Integer.parseInt(pageSize));
-		}*/
-		List resultList = this.messageManager.queryByHql("from Message where title='"+id+"'");
-	
-		//List<Message> resultList = page.getList();
-		ActionContext.getContext().put("result2", resultList);
-		//ActionContext.getContext().put(Const.Action.PAGINATION_INFO,page.getNavigation());
-		//ActionContext.getContext().put(Page.CURRENT_PAGE, page.getCurrentPage());
-		return Const.Pages.MAPPING_URL;
-		
-		//return Const.Pages.MAPPING_URL;
-	}
-	
 	public String bbsDetail() throws ParseException {
 		Title entity2 = this.titleManager.queryById(this.id);
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT, entity2);
@@ -409,8 +335,6 @@ public class TitleAction {
 		entity.setContent(this.content);
 		entity.setUsername(this.username);
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String loginid = (String) request.getSession().getAttribute("u");
-		  entity.setUserid(loginid);
 		entity.setTitle(this.title);
 		condition = new DefaultQueryCondition(entity);
 		String curPage = request.getParameter(Page.CURRENT_PAGE);
@@ -421,7 +345,7 @@ public class TitleAction {
 		if (CommonUtil.isNotEmpty(pageSize)) {
 			condition.setPageSize(Integer.parseInt(pageSize));
 		}
-		Page<Title> page = this.titleManager.getRecords(condition);
+		Page<Title> page = this.titleManager.getRecords("datetime","DESC",condition);
 		List<Title> resultList = page.getList();
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT, resultList);
 		ActionContext.getContext().put(Const.Action.PAGINATION_INFO,page.getNavigation());
@@ -444,7 +368,7 @@ public class TitleAction {
 		if (CommonUtil.isNotEmpty(pageSize)) {
 			condition.setPageSize(Integer.parseInt(pageSize));
 		}
-		Page<Title> page = this.titleManager.getRecords(condition);
+		Page<Title> page = this.titleManager.getRecords("datetime","DESC",condition);
 		List<Title> resultList = page.getList();
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT, resultList);
 		ActionContext.getContext().put(Const.Action.PAGINATION_INFO,page.getNavigation());
@@ -480,6 +404,7 @@ public class TitleAction {
 		entity.setUsername(this.username);
 		entity.setTitle(this.title);
 		entity.setType(this.type);
+		entity.setIshot(this.ishot);
 		condition = new DefaultQueryCondition(entity);
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String curPage = request.getParameter(Page.CURRENT_PAGE);
@@ -497,10 +422,14 @@ public class TitleAction {
 			one.setCount(count.size());
 		}
 		type=null;
+		this.username=null;
 		List<Title> hot = titleManager.queryByHql("from Title group by userid order by count(userid) desc limit 4");
+		this.ishot=null;
+		List<Title> hotbbs = titleManager.queryByHql("from Title where istop=1 order by datetime desc limit 4");
 		List<Classify> queryByHql = classifyManager.queryByHql("from Classify ");
 		ActionContext.getContext().put("classlist", queryByHql);
 		ActionContext.getContext().put("hot", hot);
+		ActionContext.getContext().put("hotbbs", hotbbs);
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT, resultList);
 		ActionContext.getContext().put(Const.Action.PAGINATION_INFO,page.getNavigation());
 		ActionContext.getContext().put(Page.CURRENT_PAGE, page.getCurrentPage());

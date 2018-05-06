@@ -1,7 +1,8 @@
 
 
 $(document).ready(function(){
-	
+
+
 		$('#cancelButton').click(function(){
 			self.location.href = "news/news_query.do";
 		});

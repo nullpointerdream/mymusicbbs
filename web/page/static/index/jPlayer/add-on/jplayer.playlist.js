@@ -545,7 +545,7 @@
 		playThisMusic: function (id) {
             var self = this;
             $.get(app.config.baseUrl+"/musicInfo/musicInfo_detail4front3.do",{id:id},function (data) {
-                self.add(JSON.parse(data).data, true);
+            	self.add(JSON.parse(data).data, true);
             });
             $(this.cssSelector.jPlayer).jPlayer("pauseOthers")
 			if(self.playlist.length > 300){

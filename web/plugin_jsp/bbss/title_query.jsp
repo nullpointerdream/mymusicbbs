@@ -70,19 +70,25 @@
 								<c:forEach items="${result}" var="record">
 									<tr>
 										<td><input name="primaryKey" type="checkbox" value="${record.id }"/></td>
-										<!--<td><a href="<%=basePath %>title/title_detail.do?id=${record.id }" title="title">${record.id }</a></td>-->
 											<td><a href="<%=basePath %>title/title_detail.do?id=${record.id }" title="title">${record.title}</a></td>
-											<!-- 
-											<td>${record.content}</td>
-											 -->
 											<td>${record.username}</td>
 											<td>${record.datetime}</td>
 										<td>
-											<!-- 
-											<a style="cursor: pointer;" onclick="gotoEdit('<%=basePath %>title/title_edit.do?id=${record.id }')" title="Edit"><img src="resources/images/icons/pencil.png" alt="Edit" /></a>
-											 -->
-											 <a style="cursor: pointer;" onclick="gotoEdit('<%=basePath %>title/title_edittomessage.do?id=${record.id }')" title="Edit"><img src="resources/images/icons/pencil.png" alt="Edit" /></a>
-											<a style="cursor: pointer;" onclick="actionDel('<%=basePath %>title/title_del.do?id=${record.id }')" title="Delete"><img src="resources/images/icons/cross.png" alt="Delete" /></a>
+
+												<c:if test="${record.ishot==0 || record.ishot==null}">
+													<a style="cursor: pointer;"  href="<%=basePath %>title/title_hot.do?id=${record.id }" title="加精">加精</a>&nbsp;
+												</c:if>
+												<c:if test="${record.ishot==1}">
+													<a style="cursor: pointer;"  href="<%=basePath %>title/title_hot.do?id=${record.id }" title="取消加精">取消加精</a>&nbsp;
+												</c:if>
+												<c:if test="${record.istop==0 || record.istop==null}">
+													<a style="cursor: pointer;" href="<%=basePath %>title/title_top.do?id=${record.id }" title="置顶">置顶</a>&nbsp;
+												</c:if>
+											<c:if test="${record.istop==1}">
+													<a style="cursor: pointer;" href="<%=basePath %>title/title_top.do?id=${record.id }" title="取消置顶">取消置顶</a>&nbsp;
+											</c:if>
+
+											<a style="cursor: pointer;" onclick="actionDel('<%=basePath %>title/title_admindel.do?id=${record.id }')" title="Delete"><img src="resources/images/icons/cross.png" alt="Delete" /></a>
 										</td>
 									</tr>
 								</c:forEach>

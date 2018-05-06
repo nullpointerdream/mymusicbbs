@@ -76,7 +76,7 @@
 											<label class="layui-form-label"></label>
 											<div class="layui-input-inline">
 												<input type="hidden" name="id" value="">
-												<button class="layui-btn" lay-filter="article" lay-submit>立即发布</button>
+												<button class="layui-btn" lay-filter="article" lay-submit id="aaa">立即发布</button>
 											</div>
 										</div>
 									</form>

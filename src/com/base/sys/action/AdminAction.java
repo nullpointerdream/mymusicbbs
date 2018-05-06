@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -178,30 +179,18 @@ public class AdminAction {
 
 	public String loginCheck() {
 		AjaxReturnInfo info = new AjaxReturnInfo();
-		if ("admin".equalsIgnoreCase(this.username) && "admin".equalsIgnoreCase(this.password)
-				&& "0".equals(this.usertype)) {
-			info.setSuccess(true);
-		} else {
-			Admin admin = this.adminManager.getAdminByUsername(CommonUtil.genUTF8String(this.username));
-			if(admin == null) {
+		Admin admin = this.adminManager.getAdminByUsername(CommonUtil.genUTF8String(this.username));
+		if(admin == null) {
+				info.setSuccess(false);
 				info.setErrMsg(BTAGI18N.getI18NValue("error.user.notexist", "admin"));
+		} else {
+			if(admin.getPassword().equals(this.password)&&admin.getUsertype().equals(this.usertype)) {
+					//判断 Type不对， 但是flag= Y 且密码正确
+						info.setSuccess(true);
 			} else {
-				if(!admin.getUsertype().equals(this.usertype)) {
-					//判断作家  Type不对， 但是flag= Y 且密码正确
-					if(admin.getPassword().equals(this.password)&& "Y".equals(admin.getFlag())) {
-						info.setSuccess(true);
-						return AjaxResponseUtil.getInstance(info).respToClient();
-					} 
-					
-					info.setErrMsg(BTAGI18N.getI18NValue("error.usertype.notmatch", "admin"));
-				} else {
-					if(!admin.getPassword().equals(this.password)) {
-						info.setErrMsg(BTAGI18N.getI18NValue("error.password.error", "admin"));
-					} else {
-						info.setSuccess(true);
-					}
+				info.setSuccess(false);
+				info.setErrMsg(BTAGI18N.getI18NValue("error.usertype.notmatch", "admin"));
 				}
-			}
 		}
 		return AjaxResponseUtil.getInstance(info).respToClient();
 	}
@@ -209,13 +198,9 @@ public class AdminAction {
 	public String login() {
 		SessionManager.setAdminUsername(this.username);
 		SessionManager.setAdminUserType(this.usertype);
-		if(!"admin".equals(username)){
-			Admin admin = this.adminManager.getAdminByUsername(CommonUtil.genUTF8String(this.username));
-			if(admin.getFlag() != null){
-				SessionManager.setAdminUserFlag(admin.getFlag());
-			}
-		}
-		
+		Admin admin = this.adminManager.getAdminByUsername(CommonUtil.genUTF8String(this.username));
+		SessionManager.setAdminUserFlag(admin.getFlag());
+		ServletActionContext.getRequest().getSession().setAttribute("u",admin);
 		this.username = null;
 		this.usertype = null;
 		return "adminLoginSuccess";
@@ -576,13 +561,12 @@ public class AdminAction {
 		Admin admin = this.adminManager.getAdminByUsername(admin2.getUsername());
 		if(admin != null && oldPassword.equals(admin.getPassword())) {
 			this.password = request.getParameter("newpassword");
-			String key = CommonUtil.genUTF8String(this.username);
 			admin.setPassword(this.password);
 			this.adminManager.updateUser(admin);
-			map.put("code", "修改成功");
+			map.put("code", "200");
 			map.put("msg", "修改成功");
 		} else {
-			map.put("code", "原密码错误");
+			map.put("code", "400");
 			map.put("msg", "原密码错误");
 		}
 		AjaxReturnInfo.stringPrint(JSONObject.toJSONString(map));

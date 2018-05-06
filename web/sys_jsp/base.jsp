@@ -44,7 +44,6 @@ request.getSession().setAttribute("s_currentTime", time);
   
   
 		<script type="text/javascript" src="<%=basePath %>resources/scripts/jquery-1.9.1.js"></script>
-		<script type="text/javascript" src="<%=basePath %>resources/scripts/simpla.jquery.configuration.js"></script>
 		<script type="text/javascript" src="<%=basePath %>resources/scripts/facebox.js"></script>
 		<script type="text/javascript" src="<%=basePath %>resources/scripts/jquery.ui.core.js"></script>
 		<script type="text/javascript" src="<%=basePath %>resources/scripts/jquery.ui.widget.js"></script>
@@ -52,8 +51,7 @@ request.getSession().setAttribute("s_currentTime", time);
   		<script type="text/javascript" src="<%=basePath %>resources/scripts/jquery.iframe-transport.js"></script>
   		<script type="text/javascript" src="<%=basePath %>resources/scripts/jquery.fileupload.js"></script>
   		<script type="text/javascript" src="<%=basePath %>sys_js/public.js"></script>
-  		<script type="text/javascript" src="<%=basePath %>/sys_js/ckeditor/ckeditor.js"></script>
-  		<!-- 
+  		<!--
   		<script type="text/javascript" src="<%=basePath %>resources/scripts/jquery.lightbox-0.5.js"></script>
   		 -->
   		

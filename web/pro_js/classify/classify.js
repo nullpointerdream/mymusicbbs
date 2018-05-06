@@ -26,12 +26,12 @@ $(document).ready(function(){
 			}
 		});
 		$('#cancelButton').click(function(){
-			self.location.href = "Classify/Classify_query.do";
+			self.location.href = "classify/classify_query.do";
 		});
 		$('#applyButton').click(function(){
 			var actionName = $('select[name="dropdown"]').val();
 			if("D" == actionName) {
-				actionDels('Classify/Classify_dels.do');
+				actionDels('classify/classify_dels.do');
 			} else {
 				alert("没有选择对应操作");
 			}

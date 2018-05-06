@@ -54,4 +54,5 @@
 	<script src="<%=basePath%>/page/static/index/jPlayer/add-on/config.js"></script>
     <script src="<%=basePath%>/page/static/index/jPlayer/add-on/jplayer.playlist.js"></script>
 	<script src="<%=basePath%>/page/static/index/jPlayer/jplayer.init.js"></script>
-	<script src="<%=basePath%>/page/static/index/mods/music.js"></script>	
+	<script src="<%=basePath%>/page/static/index/mods/music.js"></script>
+

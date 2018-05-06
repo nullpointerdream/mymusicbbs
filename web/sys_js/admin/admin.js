@@ -170,45 +170,25 @@ $(document).ready(function(){
 		var username = $("#username").val();
 		var newPassword = $("#newpassword").val();
 		var cPassword = $("#cpassword").val();
-		
+
 		if(isEmpty(oldpassword)){
 			$("#oldpassword_errorMsg").html("原始密码不能为空");
 			$("#oldpassword_errorMsg").addClass("error");
 		} else {
-			$.post("admin/admin_checkOldPassword.do",{
-				username:username,oldpassword:oldpassword
+			$.post("admin/admin_changePassword.do",{
+                newpassword:newPassword,oldpassword:oldpassword
 			},function(data){
-				if(typeof data != "undefined" && data != null){
-					var ndRoot = data.getElementsByTagName("root")[0];
-					var isSuccess = ndRoot.getAttribute("hasError");
-					if("N" == isSuccess) {
-						$("#oldpassword_errorMsg").removeClass("error");
-						if(isEmpty(newPassword)) {
-							$("#newpassword_errorMsg").html("新密码不能为空");
-							$("#newpassword_errorMsg").addClass("error");
-						} else if(isEmpty(cPassword)) {
-							$("#cpassword_errorMsg").html("确认密码不能为空");
+                var $data = JSON.parse(data);
+					if("400" == $data.code) {
+							$("#oldpassword_errorMsg").removeClass("error");
+							$("#cpassword_errorMsg").html($data.msg);
 							$("#cpassword_errorMsg").addClass("error");
-						} else if(newPassword != cPassword) {
-							$("#cpassword_errorMsg").html("新密码与确认密码不一致");
-							$("#cpassword_errorMsg").addClass("error");
-						} 
-						
-						else {
-							document.changeForm.submit();
-						}
 					}else {
-						var ndRoot = data.getElementsByTagName("root")[0];
-						var errMsg = ndRoot.getElementsByTagName("errMsg")[0];
-						if(document.all){
-							$("#oldpassword_errorMsg").html(errMsg.text);
-							$("#oldpassword_errorMsg").addClass("error");
-						}else {
-							$("#oldpassword_errorMsg").html(errMsg.firstChild.nodeValue);
-							$("#oldpassword_errorMsg").addClass("error");
-						}
+
+                        $("#oldpassword_errorMsg").removeClass("error");
+                        $("#cpassword_errorMsg").html($data.msg);
+                        $("#cpassword_errorMsg").addClass("success");
 					}
-				}
 			});
 			
 		}

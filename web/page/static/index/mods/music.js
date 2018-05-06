@@ -908,6 +908,7 @@ layui.use(['layer', 'laytpl', 'form', 'element', 'upload', 'util', 'carousel', '
             });
             var index = layedit.build('edit'); //建立编辑器
             var image = $('input[name="photo"]');
+
             upload.render({
                 elem: '#uploadImage'
                 ,url: app.config.baseUrl+"/admin/admin_uploadFile.do"
@@ -928,6 +929,50 @@ layui.use(['layer', 'laytpl', 'form', 'element', 'upload', 'util', 'carousel', '
                 data.field.content = layedit.getContent(index)
                 $.post(app.config.baseUrl+"/title/title_add.do", data.field, function (res) {
                 	var $data = JSON.parse(res);
+                    if($data.code == 200){
+                        layer.msg($data.msg, {icon:1, time:2000}, function () {
+                            $.pjax({
+                                url: app.config.baseUrl+'title/title_bbsList.do',
+                                container: '#container'
+                            });
+                            return false;
+                        })
+                    }else{
+                        layer.tips($data.msg, that, {tips: 1});
+                        return false;
+                    }
+                })
+                return false;
+            });
+            form.on("submit(news)", function (data) {
+                var that = this;
+                data.field.content = layedit.getContent(index)
+                data.field.title=$("#title").val();
+                $.post(app.config.baseUrl+"/news/news_add.do", data.field, function (res) {
+                    var $data = JSON.parse(res);
+                    if($data.code == 200){
+                        layer.msg($data.msg, {icon:1, time:2000}, function () {
+                            $.pjax({
+                                url: app.config.baseUrl+'title/title_bbsList.do',
+                                container: '#container'
+                            });
+                            return false;
+                        })
+                    }else{
+                        layer.tips($data.msg, that, {tips: 1});
+                        return false;
+                    }
+                })
+                return false;
+            });
+            form.on("submit(mytitle)", function (data) {
+                var that = this;
+
+                data.field.content = layedit.getContent(index);
+                data.field.title=$("#title").val();
+                data.field.type=$("#type").val();
+                $.post(app.config.baseUrl+"/title/title_add.do", data.field, function (res) {
+                    var $data = JSON.parse(res);
                     if($data.code == 200){
                         layer.msg($data.msg, {icon:1, time:2000}, function () {
                             $.pjax({
@@ -1096,7 +1141,7 @@ layui.use(['layer', 'laytpl', 'form', 'element', 'upload', 'util', 'carousel', '
         })
     })
     
-    
+
 	$('form[name="mainform"] input[name="submitButton"]').click(function(){
 		 var layedit = layui.layedit, upload = layui.upload, form = layui.form;
 		var hasError = false;

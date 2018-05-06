@@ -39,6 +39,7 @@
             <result name="delDO" type="redirectAction">/bbss/title_myTitle.do</result>
             <result name="successClose">/sys_jsp/success4Close.jsp</result>
             <result name="addui">/page/index/bbs/addLunTan.jsp</result>
+            <result name="addAdminUI">/pro_jsp/zhaoPin/zhaoPin_add.jsp</result>
             <result name="bbsList">/page/index/bbs/bbslist.jsp</result>
             <result name="bbsDetail">/page/index/bbs/details.jsp</result>
             <result name="mytitle">/page/index/user/bbs.jsp</result>

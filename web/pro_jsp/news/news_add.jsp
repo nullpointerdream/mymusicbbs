@@ -5,15 +5,8 @@
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<title><public:i18n key="system.name" module="system"></public:i18n></title>
-			<script type="text/javascript" src="<%=basePath %>pro_js/news/news.js"></script>
 		</head>
-<script type="text/javascript">
-function check(){
-	var index = layedit.build('edit'); //建立编辑器
-	alert(layedit.getContent(index));
-}
 
-</script>
 		<body>
 			<div id="main-content">
 			<div class="content-box">
@@ -27,7 +20,7 @@ function check(){
 			<div class="content-box-content">
 			<jsp:include page="/sys_jsp/notification.jsp"></jsp:include>
 				<div class="tab-content default-tab" id="tab1">
-					<form  method="post" name="mainform"  onsubmit="return check()">
+
 					<table>
 					<tr>
 					    <td>
@@ -43,32 +36,32 @@ function check(){
 						      <label><public:i18n key="content" module="news"></public:i18n></label>
 					    </td>
 					    <td>
-						       
+
 					     </td>
 					</tr>
 					<tr>
-					   
+
 					    <td colspan="2">
 						      <!--  <textarea class="text-input textarea wysiwyg" id="content" name="content" cols="60" rows="5" rule="CHAR_M"></textarea> -->
-						      
+
 						      <textarea name="content" class="layui-textarea" id="edit"
 													cols="60" rows="10"></textarea>
-						     
+
 					     </td>
 					</tr>
-				
-					
-					
+
+
+
 					<tr>
 					    <td>
 					    </td>
 					    <td>
-							<input class="button" type="button" name="submitButton" value='<public:i18n key="button.submit" module="common"></public:i18n>' />
-					    </td>
+							<%--<input class="button" type="button" name="submitButton" onclick="check()" value='<public:i18n key="button.submit" module="common"></public:i18n>' />--%>
+							<button class="layui-btn" lay-filter="news" lay-submit>立即发布</button>
+					     </td>
 					 </tr>
 					</table>
 					<div class="clear"></div>
-					</form>
 				</div>
 				</div>
 				</div>

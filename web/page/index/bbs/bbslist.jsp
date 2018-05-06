@@ -44,27 +44,38 @@
 						<div class="layui-card-body">
 							<ul class="fly-list">
 
-								<li><a href="/index/user/index/id/1.html"
-									class="fly-avatar" data-pjax=""> <img
-										src="<%=basePath%>/page/static/admin/img/profile-photos/1.png"
-										alt="管理员">
-								</a>
-									<h2>
-										<a class="layui-badge">发烧天碟</a> <a
-											href="/index/article/show/id/2.html" data-pjax="">【女声雅韵系列】精选女声合集
-											21-30 iVusic音乐网</a>
-									</h2>
-									<div class="fly-list-info">
-										<a href="/index/user/index/id/1.html" data-pjax=""> <cite>管理员</cite>
-										</a> <span>01月30日</span>
+								<c:forEach items="${hotbbs}" var="record">
+									<li><a href="/index/user/index/id/1.html"
+										   class="fly-avatar" data-pjax=""> <img
+											src="<%=basePath%>/attachment/${record.img}">
+									</a>
+										<h2>
+											<c:forEach items="${classlist}" var="type">
+												<c:if test="${type.id==record.type}">
+													<a class="layui-badge">${type.name }</a>
+												</c:if>
 
-										<!--<span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻"><i class="iconfont icon-kiss"></i> 60</span>-->
-										<span class="fly-list-nums"><i
-											class="iconfont icon-pinglun1" title="回答"></i> 0</span>
-									</div>
-									<div class="fly-list-badge">
-										<span class="layui-badge layui-bg-red">精华</span>
-									</div></li>
+											</c:forEach>
+
+											<a
+													href="<%=basePath %>title/title_bbsDetail.do?id=${record.id }"
+													title="title"> ${record.title}</a>
+										</h2>
+										<div class="fly-list-info">
+											<a href="/index/user/index/id/1.html" data-pjax=""> <cite>${record.username}
+											</cite>
+											</a> <span>${record.datetime}</span> <span class="fly-list-nums"><i
+												class="iconfont icon-pinglun1" title="回答"></i>
+												${record.count}</span>
+										</div>
+										<c:if test="${record.ishot==1}">
+										<div class="fly-list-badge">
+											<span class="layui-badge layui-bg-red">精华</span>
+										</div>
+										</c:if>
+									</li>
+								</c:forEach>
+
 
 							</ul>
 						</div>
@@ -81,9 +92,7 @@
 										class="" data-pjax="">${record.name}</a>
 								</c:forEach>
 								<span class="fly-mid"></span> <a
-									href="/index/article/index/rank/1.html" class="" data-pjax="">精华</a>
-								<span class="fly-mid"></span> <a
-									href="/index/article/index/rank/2.html" class="" data-pjax="">热门</a>
+									href="<%=basePath%>title/title_bbsList.do?ishot=1" class="" data-pjax="">精华</a>
 
 							</div>
 						</div>
@@ -112,7 +121,14 @@
 											</a> <span>${record.datetime}</span> <span class="fly-list-nums"><i
 												class="iconfont icon-pinglun1" title="回答"></i>
 												${record.count}</span>
-										</div></li>
+										</div>
+
+										<c:if test="${record.ishot==1}">
+											<div class="fly-list-badge">
+												<span class="layui-badge layui-bg-red">精华</span>
+											</div>
+										</c:if>
+									</li>
 								</c:forEach>
 							</ul>
 						</div>

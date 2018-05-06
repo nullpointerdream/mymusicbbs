@@ -34,9 +34,9 @@
 					
 					<div class="tab-content default-tab" id="tab1">
 					
-						<form action="<%=basePath %>admin/admin_changePassword.do" method="post" name="changeForm">
+						<form  method="post" name="changeForm">
 							
-							<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+							<fieldset>
 								<p>
 									<label><public:i18n key="username" module="admin"></public:i18n></label>
 										<input class="text-input small-input" type="text" id="username" name="username" rule="CHAR_M_120" readonly="readonly" value="<%=request.getSession().getAttribute(Const.Session.ADMIN_USER_NAME) %>"/>

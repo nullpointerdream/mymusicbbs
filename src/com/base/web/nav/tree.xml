@@ -5,9 +5,7 @@
         <link href="admin/admin_query.do?username=" name="管理用户" type="0"/>
          <link href="musicInfo/musicInfo_querysoucang.do" name="收藏歌曲统计" type="0"/>
     </manager>
-    <manager name="个人信息管理" type="1">
-        <link href="./sys_jsp/admin/admin_changePassword.jsp" name="修改密码" type="0"/>
-    </manager>
+
     <manager name="公告管理"  type="0">
         <link href="./plugin_jsp/announce/announce_add.jsp" name="添加公告" type="0"/>
         <link href="./plugin_jsp/announce/announce_query.jsp" name="查询公告" type="0"/>
@@ -17,8 +15,11 @@
         <link href="./pro_jsp/classify/classify_add.jsp" name="添加分类" type="0"/>
         <link href="classify/classify_query.do" name="查询分类" type="0"/>
     </manager>
-  
-   
+
+    <manager name="帖子管理" type="1">
+        <link href="title/title_addAdminUI.do" name="添加帖子" type="0"/>
+        <link href="title/title_query.do" name="查询帖子" type="0"/>
+    </manager>
     <manager name="歌曲信息管理" type="1">
         <link href="musicInfo/musicInfo_query.do" name="查询歌曲信息" type="0"/>
     </manager>

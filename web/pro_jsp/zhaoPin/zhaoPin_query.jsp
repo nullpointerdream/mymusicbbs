@@ -28,7 +28,7 @@
 			<div class="content-box-content">
 				<div class="tab-content default-tab" id="tab1">
 				<jsp:include page="/sys_jsp/notification.jsp"></jsp:include>
-					<form id="searchForm" name="searchForm" action="zhaoPin/zhaoPin_query.do" method="post">
+					<form id="searchForm" name="searchForm" action="title/title_query.do" method="post">
 			<public:i18n key="title" module="zhaoPin"></public:i18n>: <input type="text" name="title"/>
 			<public:i18n key="content" module="zhaoPin"></public:i18n>: <input type="text" name="content"/>
 			<public:i18n key="username" module="zhaoPin"></public:i18n>: <input type="text" name="username"/>
