@@ -65,7 +65,8 @@
             <result name="gotogequ">/pro_jsp/musicInfo/musicInfo_query4front2.jsp</result>
              <result name="gotodetail4front">/pro_jsp/musicInfo/musicInfo_detail4front.jsp</result>
              <result name="musiclist">/page/index/music/musiclist.jsp</result>
-            
+             <result name="tuijianlist">/sys_jsp/shortcut/shortcut_select.jsp</result>
+
         </action>
     </package>
     <package extends="struts-default" name="news" namespace="/news">

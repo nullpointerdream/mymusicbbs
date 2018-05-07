@@ -312,6 +312,16 @@ public class MusicInfoAction {
 		ActionContext.getContext().put("musicname", entity.getMusicname());
 		return "musiclist";
 	}
+
+	public String tuijianlist() {
+
+		List<MusicInfo> page = this.musicInfoManager.queryByHql("From MusicInfo order by date desc");
+
+		ActionContext.getContext().put("list", page);
+		return "tuijianlist";
+	}
+
+
 	public void add4front() throws Exception {
 		MusicInfo entity = new MusicInfo();
 		Map<String,Object> map = new HashMap<>();

@@ -29,36 +29,19 @@
 				<div class="layui-col-md8">
 					<div class="layui-carousel" id="indexCarouse">
 						<div carousel-item>
-							<div>
-								<a href="http://www.ivusic.com/index/news/show/id/10.html"
-									target="self" data-pjax title="网站链接 网站导航"><img
-									src="<%=basePath%>/page/uploads/20180319/b524252139956f370217818fa209d80f.jpg"
-									alt=""></a>
-							</div>
-							<div>
-								<a href="http://music.163.com/song?id=544247523" target="self"
-									data-pjax title="网易云音乐"><img
-									src="<%=basePath%>/page/uploads/20180319/22803cf6906ee38f00ace612ad556147.png"
-									alt=""></a>
-							</div>
-							<div>
-								<a href="http://music.163.com/#/topic?id=18818108" target="self"
-									data-pjax title="网易云音乐"><img
-									src="<%=basePath%>/page/uploads/20180319/756ca8816201110eadd55c85a2df7f99.png"
-									alt=""></a>
-							</div>
-							<div>
-								<a href="http://music.163.com/store/newalbum/detail?id=37548020"
-									target="self" data-pjax title="网易云音乐"><img
-									src="<%=basePath%>/page/uploads/20180319/d7aa082856cbe394de500d5afc18a048.png"
-									alt=""></a>
-							</div>
-							<div>
-								<a href="http://music.163.com/mv?id=5853072" target="self"
-									data-pjax title="网易云音乐"><img
-									src="<%=basePath%>/page/uploads/20180319/a79a92a7afa8f3a997fcc04c8c3ecf3c.png"
-									alt=""></a>
-							</div>
+
+							<c:forEach items="${shortcuts}" var="record">
+								<div>
+									<a href="<%=basePath%>musicInfo/musicInfo_musicInfo.do?id=${record.url }"
+									   target="self" data-pjax title="${record.name }"><img
+											src="<%=basePath%>/attachment/${record.img }"
+											alt=""></a>
+								</div>
+
+							</c:forEach>
+
+
+
 						</div>
 					</div>
 				</div>

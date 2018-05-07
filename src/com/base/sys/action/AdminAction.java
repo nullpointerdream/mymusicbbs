@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+import com.base.sys.entity.Shortcut;
+import com.base.sys.manager.ShortcutManager;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -54,6 +56,8 @@ import com.pro.manager.ZhaoPinManager;
 public class AdminAction {
 	@Resource
 	private AdminManager adminManager;
+	@Resource
+	private ShortcutManager shortcutManager;
 	@Resource
 	private ApplyInfoManager applyInfoManager;
 	@Resource
@@ -367,6 +371,8 @@ public class AdminAction {
 		condition.setPageSize(8);
 		Page<Admin> page3 = this.adminManager.getAdminList("accountCreateTime","DESC",condition);
 		List<Admin> resultList3 = page3.getList();
+		List<Shortcut> shortcuts = this.shortcutManager.queryByHql("from Shortcut");
+		ActionContext.getContext().put("shortcuts", shortcuts);
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT3, resultList3);
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT, resultList);
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT2, resultList2);

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-			<title><public:i18n key="system.name" module="system"></public:i18n></title>
+			<title>推荐歌曲</title>
 			<script type="text/javascript" src="<%=basePath %>sys_js/shortcut/shortcut.js"></script>
 
 			<script type="text/javascript">
@@ -19,7 +19,7 @@
 			<div id="main-content">
 			<div class="content-box">
 			<div class="content-box-header">
-				<h3><public:i18n key="function.manager" module="shortcut"></public:i18n></h3>
+				<h3>推荐歌曲</h3>
 				<ul class="content-box-tabs">
 					<li><a href="#tab1" class="default-tab"><public:i18n key="function.list" module="shortcut"></public:i18n></a></li>
 				</ul>
@@ -40,8 +40,7 @@
 								<thead>
 									<tr>
 										<th><input class="check-all" type="checkbox" /></th>
-								<th><public:i18n key="name" module="shortcut"></public:i18n></th>
-								<th><public:i18n key="url" module="shortcut"></public:i18n></th>
+								<th>推荐歌曲名称</th>
 										<th><public:i18n key="action" module="common"></public:i18n></th>
 									</tr>
 								</thead>
@@ -66,7 +65,7 @@
 										<td><input name="primaryKey" type="checkbox" value="${record.id }"/></td>
 										<!--<td><a href="<%=basePath %>shortcut/shortcut_detail.do?id=${record.id }" title="title">${record.id }</a></td>-->
 											<td><a href="<%=basePath %>shortcut/shortcut_detail.do?id=${record.id }" title="title">${record.name}</a></td>
-											<td>${record.url}</td>
+
 										<td>
 											<a style="cursor: pointer;" onclick="gotoEdit('<%=basePath %>shortcut/shortcut_edit.do?id=${record.id }')" title="Edit"><img src="resources/images/icons/pencil.png" alt="Edit" /></a>
 											<a style="cursor: pointer;" onclick="actionDel('<%=basePath %>shortcut/shortcut_del.do?id=${record.id }')" title="Delete"><img src="resources/images/icons/cross.png" alt="Delete" /></a>

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-			<title><public:i18n key="system.name" module="system"></public:i18n></title>
+			<title>添加推荐歌曲</title>
 			<script type="text/javascript" src="<%=basePath %>sys_js/shortcut/shortcut.js"></script>
 		</head>
 
@@ -12,9 +12,9 @@
 			<div id="main-content">
 			<div class="content-box">
 			<div class="content-box-header">
-				<h3><public:i18n key="function.add" module="shortcut"></public:i18n></h3>
+				<h3>添加推荐歌曲</h3>
 				<ul class="content-box-tabs">
-					<li><a href="#tab1" class="default-tab"><public:i18n key="function.add" module="shortcut"></public:i18n></a></li>
+					<li><a href="#tab1" class="default-tab">添加推荐歌曲</a></li>
 				</ul>
 				<div class="clear"></div>
 			</div>
@@ -24,25 +24,25 @@
 					<form action="<%=basePath %>shortcut/shortcut_add.do" method="post" name="mainform">
 					<fieldset>
 					<p>
-						<b>推荐地址:</b>
-						<input class="text-input small-input" type="text" id="url" name="url" rule="CHAR_M_200"/>
-						<input class="button" type="button" name="openPage" value="..." onclick="gotoSelectPage('<%=basePath %>sys_jsp/shortcut/shortcut_select.jsp')"/>
-						<span id="url_errorMsg" class="input-notification png_bg"></span>
+						<input class="text-input small-input" type="hidden" id="url" name="url" rule="CHAR_M_200"/>
+
+
 					</p>
 					<p>
-						<b>推荐名称:</b>
+						<b>推荐歌曲:</b>
 						<input class="text-input small-input" type="text" id="name" name="name" rule="CHAR_M_200"/>
+						<input class="button" type="button" name="openPage" value="..." onclick="gotoSelectPage('<%=basePath %>musicInfo/musicInfo_tuijianlist.do')"/>
 						<span id="name_errorMsg" class="input-notification png_bg"></span>
 					</p>
 					<p>
 						<div class="layui-form-item">
-							<div class="avatar-add">
+							<div class="avatar-add" style="width: 100%">
 						<p>建议尺寸775*356，支持jpg、png、gif，最大不能超过500KB</p>
 						<button type="button" class="layui-btn upload-img">
 							<i class="layui-icon">&#xe67c;</i>上传图片
 						</button>
-						<input type="hidden" name="fileFileName" id="fileFileName" value="${sessionScope.u.file}" class="layui-input">
-						<img src="<%=basePath%>/attachment/${sessionScope.u.file}" id="fileFileNamesrc">
+						<input type="hidden" name="fileFileName" id="fileFileName" class="layui-input">
+						<img style="left: 9%;width: 100%;border-radius: 0%;top: 40%;height: 260px"  id="fileFileNamesrc">
 						<span class="loading"></span>
 				</div>
 			</div>
