@@ -987,7 +987,30 @@ layui.use(['layer', 'laytpl', 'form', 'element', 'upload', 'util', 'carousel', '
                     }
                 })
                 return false;
-            })
+            });
+            form.on("submit(updatenews)", function (data) {
+                var that = this;
+                data.field.content = layedit.getContent(index);
+                data.field.title=$("#title").val();
+                data.field.id=$("#id").val();
+                $.post(app.config.baseUrl+"/news/news_update.do", data.field, function (res) {
+                    var $data = JSON.parse(res);
+                    if($data.code == 200){
+                        layer.msg($data.msg, {icon:1, time:2000}, function () {
+                            $.pjax({
+                                url: app.config.baseUrl+'title/title_bbsList.do',
+                                container: '#container'
+                            });
+                            return false;
+                        })
+                    }else{
+                        layer.tips($data.msg, that, {tips: 1});
+                        return false;
+                    }
+                })
+                return false;
+            });
+
         },
         linkAdd: function () {
             var upload = layui.upload, form = layui.form;

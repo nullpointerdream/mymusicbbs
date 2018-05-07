@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ include file="/sys_jsp/base.jsp"%>
+<jsp:include page="/page/index/common/common.jsp" />
 <html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -23,15 +24,28 @@
 					<form action="<%=basePath %>shortcut/shortcut_add.do" method="post" name="mainform">
 					<fieldset>
 					<p>
-						<b><public:i18n key="url" module="shortcut"></public:i18n>:</b>
+						<b>推荐地址:</b>
 						<input class="text-input small-input" type="text" id="url" name="url" rule="CHAR_M_200"/>
 						<input class="button" type="button" name="openPage" value="..." onclick="gotoSelectPage('<%=basePath %>sys_jsp/shortcut/shortcut_select.jsp')"/>
 						<span id="url_errorMsg" class="input-notification png_bg"></span>
 					</p>
 					<p>
-						<b><public:i18n key="name" module="shortcut"></public:i18n>:</b>
+						<b>推荐名称:</b>
 						<input class="text-input small-input" type="text" id="name" name="name" rule="CHAR_M_200"/>
 						<span id="name_errorMsg" class="input-notification png_bg"></span>
+					</p>
+					<p>
+						<div class="layui-form-item">
+							<div class="avatar-add">
+						<p>建议尺寸775*356，支持jpg、png、gif，最大不能超过500KB</p>
+						<button type="button" class="layui-btn upload-img">
+							<i class="layui-icon">&#xe67c;</i>上传图片
+						</button>
+						<input type="hidden" name="fileFileName" id="fileFileName" value="${sessionScope.u.file}" class="layui-input">
+						<img src="<%=basePath%>/attachment/${sessionScope.u.file}" id="fileFileNamesrc">
+						<span class="loading"></span>
+				</div>
+			</div>
 					</p>
 						<p>
 							<input class="button" type="button" name="submitButton" value='<public:i18n key="button.submit" module="common"></public:i18n>' />

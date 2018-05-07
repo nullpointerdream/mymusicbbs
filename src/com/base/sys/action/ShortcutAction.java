@@ -28,7 +28,7 @@ public class ShortcutAction {
 	private String url;
 	@EntityAnnotation(needShow = false, needUpdate = false)
 	private String username;
-
+	private String fileFileName;
 	public int getId() {
 		return id;
 	}
@@ -61,6 +61,14 @@ public class ShortcutAction {
 		this.username = username;
 	}
 
+	public String getFileFileName() {
+		return fileFileName;
+	}
+
+	public void setFileFileName(String fileFileName) {
+		this.fileFileName = fileFileName;
+	}
+
 	private DefaultQueryCondition condition;
 	private Page page;
 	public String add() {
@@ -68,6 +76,7 @@ public class ShortcutAction {
 		try {
 			entity.setName(this.name);
 			entity.setUrl(this.url);
+			entity.setImg(this.fileFileName);
 			this.username = SessionManager.getAdminUsername();
 			entity.setUsername(this.username);
 			this.shortcutManager.add(entity);

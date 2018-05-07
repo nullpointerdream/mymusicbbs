@@ -8,6 +8,7 @@
 		</id>
 		<property access="field" column="t_name" length="200" name="name" />
 		<property access="field" column="t_url" length="200" name="url" />
+		<property access="field" column="t_img" length="200" name="img" />
 		<property access="field" column="t_username" length="200"
 			name="username" />
 	</class>

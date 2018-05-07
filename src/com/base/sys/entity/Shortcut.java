@@ -9,14 +9,23 @@ public class Shortcut extends BaseEntity {
 	 * 
 	 */
 	private static final long serialVersionUID = 7447574369431412501L;
-	@EntityAnnotation(beanName = "快捷方式", needShow = false)
+	@EntityAnnotation(beanName = "首页推荐", needShow = false)
 	private int id;
-	@EntityAnnotation(desc = "快捷键名称", isDetailLink = true, isQueryField = true, rule = "CHAR_M_200")
+	@EntityAnnotation(desc = "推荐名称", isDetailLink = true, isQueryField = true, rule = "CHAR_M_200")
 	private String name;
-	@EntityAnnotation(desc = "快捷键地址", rule = "CHAR_M_200")
+	@EntityAnnotation(desc = "推荐地址", rule = "CHAR_M_200")
 	private String url;
 	@EntityAnnotation(needShow = false, needUpdate = false)
 	private String username;
+	private String img;
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
 
 	public int getId() {
 		return id;

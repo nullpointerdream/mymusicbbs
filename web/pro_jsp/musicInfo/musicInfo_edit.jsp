@@ -134,40 +134,7 @@
 					    <td>
 						      <public:i18n key="tuijian" module="musicInfo"></public:i18n>:
 					    </td>
-					    <td>
-					        <select class="select" type="text" id="tuijian" name="tuijian" value="${result.tuijian }">
-						    <option value="否">否</option>
-						    <option value="是">是</option>
-					        </select>
-					        
-					         <script>
-							//获得后台的值,把相应的select的option选为默认的值
-							$(document).ready(function(){
-							selectCheckPayStats("tuijian","${result.tuijian}");
-							});
-							//修改select的option默认显示项的方法
-							function selectCheckPayStats(id,value)
-							{
-								//获得下拉列表的id
-								var select = document.getElementById(id);
-								//获得下拉列表的所有option
-								var options = select.options;
-								//循环获得对应的节点
-								for(var i=0;i<options.length;i++)
-								{
-									//获得节点的值和后台传来的值进行比较
-										if (options[i].value == value)
-											{
-												//如果当前节点与后台传来的值一致，则将当前节点设置为选中状态，并跳出循环
- 												options[i].selected = true;
-													break;
-											}
-								}
-							} 
-    						</script>
-						    <span id="tuijian_errorMsg" class="input-notification png_bg"></span>
-					    </td>
-					</tr>
+
 					<tr>
 					   <td>
 						   <public:i18n key="date" module="musicInfo"></public:i18n>:
@@ -180,54 +147,8 @@
 						    <span id="date_errorMsg" class="input-notification png_bg"></span>
 					   </td>
 					</tr>
-					<tr>
-					    <td>
-						      <public:i18n key="shenhe" module="musicInfo"></public:i18n>:
-					    </td>
-					    <td>
-					        <select class="select" type="text" id="shenhe" name="shenhe" value="${result.shenhe }">
-						    <option value="提交">提交</option>
-						    <option value="通过">通过</option>
-						    <option value="未过">未过</option>
-					        </select>
-					        
-					          <script>
-							//获得后台的值,把相应的select的option选为默认的值
-							$(document).ready(function(){
-							selectCheckPayStats("shenhe","${result.shenhe}");
-							});
-							//修改select的option默认显示项的方法
-							function selectCheckPayStats(id,value)
-							{
-								//获得下拉列表的id
-								var select = document.getElementById(id);
-								//获得下拉列表的所有option
-								var options = select.options;
-								//循环获得对应的节点
-								for(var i=0;i<options.length;i++)
-								{
-									//获得节点的值和后台传来的值进行比较
-										if (options[i].value == value)
-											{
-												//如果当前节点与后台传来的值一致，则将当前节点设置为选中状态，并跳出循环
- 												options[i].selected = true;
-													break;
-											}
-								}
-							} 
-    						</script>
-						    <span id="shenhe_errorMsg" class="input-notification png_bg"></span>
-					    </td>
-					</tr>
-					<tr>
-					   <td>
-						    <label><public:i18n key="remark" module="musicInfo"></public:i18n></label>
-					   </td>
-					   <td>
-						   <textarea class="text-input textarea wysiwyg" id="remark" name="remark" cols="60" rows="5" rule="CHAR_N">${result.remark}</textarea>
-						   <span id="remark_errorMsg" class="input-notification png_bg"></span>
-					   </td>
-					</tr>
+
+					
 					<tr>
 					   <td>
 								<input class="button" type="button" id="submitButton" name="submitButton" value='<public:i18n key="button.submit" module="common"></public:i18n>' />

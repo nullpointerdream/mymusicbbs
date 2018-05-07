@@ -140,15 +140,18 @@ public class NewsAction {
 		return Const.Pages.QUERY_DO;
 	}
 
-	public String update() {
+	public void update() {
 		News entity = this.newsManager.queryById(this.id);
 		entity.setContent(this.content);
 		entity.setUserid(this.userid);
 		this.newsManager.update(entity);
+		JSONObject json =new JSONObject();
+		json.put("code",200);
+		json.put("msg","修改成功");
 		this.title =null;
 		content = null;
 		username = null;
-		return Const.Pages.QUERY_DO;
+		AjaxReturnInfo.stringPrint(json.toJSONString());
 	}
 
 	public String edit() {
@@ -184,7 +187,7 @@ public class NewsAction {
 		if (CommonUtil.isNotEmpty(pageSize)) {
 			condition.setPageSize(Integer.parseInt(pageSize));
 		}
-		Page<News> page = this.newsManager.getRecords(condition);
+		Page<News> page = this.newsManager.getRecords("datetime","DESC",condition);
 		List<News> resultList = page.getList();
 		ActionContext.getContext().put(Const.Action.PAGE_REUSLT, resultList);
 		ActionContext.getContext().put(Const.Action.PAGINATION_INFO,page.getNavigation());
