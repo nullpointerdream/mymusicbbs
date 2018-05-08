@@ -50,7 +50,7 @@ public class LiuYanBanAction {
 	@EntityAnnotation(desc="状态",needUpdate=false,isQueryField=true,rule ="SELE_M;未回复;已回复")
 	private String status;
 	
-	@EntityAnnotation(desc="留言回复",needUpdate=false, isQueryField = false,rule="CHAR_N_1024")
+	@EntityAnnotation(desc="留言回复 ",needUpdate=false, isQueryField = false,rule="CHAR_N_1024")
 	private String remark;
 
 	public int getId() {
